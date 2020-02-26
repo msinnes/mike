@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Function should take an optional config argument 1`] = `"InternalError: the configuration is invalid, allowed keys are allowEmpty, throwOnInvalid, and type"`;
+
+exports[`Function should take an optional message argument 1`] = `"InternalError: message must be a string or a function"`;

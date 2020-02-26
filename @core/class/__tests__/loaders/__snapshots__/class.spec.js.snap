@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`classLoader loadClass output should not be callable as a function 1`] = `"ClassError: Cannot call a class as a function"`;
+
+exports[`classLoader loadClass output should not be callable as a function 2`] = `"ClassError: Cannot call a class as a function"`;
+
+exports[`classLoader loadClass output should not be callable as a function 3`] = `"ClassError: Cannot call a class as a function"`;

@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Validation config throwOnInvalid should throw a ValidationError if the validation fails 1`] = `"ValidationError: error string"`;
+
+exports[`Validation should be a class 1`] = `"ClassError: Cannot call a class as a function"`;

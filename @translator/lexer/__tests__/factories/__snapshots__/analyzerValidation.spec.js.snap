@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`analyzerValidationFactory should be an array 1`] = `"Expected Array"`;
+
+exports[`analyzerValidationFactory should put the field name in an error message 1`] = `
+"[0].check: fieldName must have a check function
+[0].exec: fieldName must have an exec function"
+`;

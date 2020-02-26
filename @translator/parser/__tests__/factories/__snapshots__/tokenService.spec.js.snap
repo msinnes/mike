@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tokenServiceFactory currentToken should not be writable 1`] = `"InternalError: currentToken is read only"`;
+
+exports[`tokenServiceFactory each should throw an error if an attempt is made to eat the wrong token 1`] = `"ParseError: Unexpected Token"`;

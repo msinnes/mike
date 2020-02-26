@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseLexer should be an abstract class 1`] = `"ClassError: Cannot call a class as a function"`;
+
+exports[`BaseLexer should be an abstract class 2`] = `"ClassError: Abstract classes cannot be instantiated"`;
+
+exports[`BaseLexer should require a text parameter 1`] = `"ValidationError: text must be a string"`;
+
+exports[`BaseLexer should require a text parameter 2`] = `"ValidationError: text must be a string"`;

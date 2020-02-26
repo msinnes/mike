@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`config/index should throw an error if any value is invalid 1`] = `"ValidationError: caseSensitive: error message"`;

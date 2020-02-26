@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ValidationResult arguments should throw an error 1`] = `"InternalError: the valid arg must be a boolean"`;
+
+exports[`ValidationResult arguments should throw an error 2`] = `"InternalError: the valid arg must be a boolean"`;
+
+exports[`ValidationResult arguments should throw an error 3`] = `"InternalError: the valid arg must be a boolean"`;
+
+exports[`ValidationResult arguments should throw an error 4`] = `"InternalError: the data must be a string, object, or array"`;
+
+exports[`ValidationResult arguments should throw an error 5`] = `"InternalError: the data must be a string, object, or array"`;
+
+exports[`ValidationResult should be a class 1`] = `"InternalError: the valid arg must be a boolean"`;

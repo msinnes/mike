@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`checkFnEnforcement should throw an error if an input is not a function 1`] = `"InternalError: checkFn must be a function"`;
+
+exports[`checkFnEnforcement should throw an error if an input is not a function 2`] = `"InternalError: checkFn must be a function"`;
+
+exports[`checkFnEnforcement should throw an error if an input is not a function 3`] = `"InternalError: checkFn must be a function"`;

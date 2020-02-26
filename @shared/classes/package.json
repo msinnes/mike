@@ -1,0 +1,13 @@
+{
+  "name": "@shared/classes",
+  "version": "1.0.0",
+  "description": "classes to use across the j framework",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "classes"
+  ],
+  "author": "Michael Sinnes",
+  "license": "ISC"
+}

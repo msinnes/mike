@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mapValidationEnforcement should throw an error 1`] = `"InternalError: A Map Validation should be an object with keys and values validations"`;
+
+exports[`mapValidationEnforcement should throw an error 2`] = `"InternalError: A Map Validation should be an object with keys and values validations"`;
+
+exports[`mapValidationEnforcement should throw an error 3`] = `"InternalError: A Map Validation should be an object with keys and values validations"`;
+
+exports[`mapValidationEnforcement should throw an error 4`] = `"InternalError: A Map Validation should be an object with keys and values validations"`;
+
+exports[`mapValidationEnforcement should throw an error 5`] = `"InternalError: A Map Validation should be an object with keys and values validations"`;

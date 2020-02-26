@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getEnforcement should run a check function and throw an error if the check fails 1`] = `"InternalError: string"`;

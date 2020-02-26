@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`throwClassError should throw a class error 1`] = `"ClassError: some error text"`;

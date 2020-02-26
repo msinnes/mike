@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`configEnforcement should throw an error 1`] = `"InternalError: the configuration is invalid, allowed keys are allowEmpty, throwOnInvalid, and type"`;
+
+exports[`configEnforcement should throw an error 2`] = `"InternalError: the configuration is invalid, allowed keys are allowEmpty, throwOnInvalid, and type"`;
+
+exports[`configEnforcement should throw an error 3`] = `"InternalError: the configuration is invalid, allowed keys are allowEmpty, throwOnInvalid, and type"`;
+
+exports[`configEnforcement should throw an error 4`] = `"InternalError: the configuration is invalid, allowed keys are allowEmpty, throwOnInvalid, and type"`;
+
+exports[`configEnforcement should throw an error 5`] = `"InternalError: the configuration is invalid, allowed keys are allowEmpty, throwOnInvalid, and type"`;
+
+exports[`configEnforcement should throw an error 6`] = `"InternalError: the configuration is invalid, allowed keys are allowEmpty, throwOnInvalid, and type"`;
+
+exports[`configEnforcement should throw an error 7`] = `"InternalError: the configuration is invalid, allowed keys are allowEmpty, throwOnInvalid, and type"`;
+
+exports[`configEnforcement should throw an error 8`] = `"InternalError: the configuration is invalid, allowed keys are allowEmpty, throwOnInvalid, and type"`;
+
+exports[`configEnforcement should throw an error 9`] = `"InternalError: the configuration is invalid, allowed keys are allowEmpty, throwOnInvalid, and type"`;

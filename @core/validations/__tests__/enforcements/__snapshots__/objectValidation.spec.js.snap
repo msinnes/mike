@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`objectValidationEnforcement should throw an error 1`] = `"InternalError: An Object Validation should be an object and all fields should be validations"`;
+
+exports[`objectValidationEnforcement should throw an error 2`] = `"InternalError: An Object Validation should be an object and all fields should be validations"`;
+
+exports[`objectValidationEnforcement should throw an error 3`] = `"InternalError: An Object Validation should be an object and all fields should be validations"`;
+
+exports[`objectValidationEnforcement should throw an error 4`] = `"InternalError: An Object Validation should be an object and all fields should be validations"`;

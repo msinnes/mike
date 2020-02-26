@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`assertClass should throw an error if input is not a class 1`] = `"ClassError: message"`;
+
+exports[`assertClass should throw an error if input is not a class 2`] = `"ClassError: message"`;
+
+exports[`assertClass should throw an error if input is not a class 3`] = `"ClassError: message"`;

@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`baseBuilderFactory should assert if something is an instance of the input constructor 1`] = `"type assertion failed for type name"`;

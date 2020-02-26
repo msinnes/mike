@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`constructorEnforcement should throw an error if an input is not a function 1`] = `"InternalError: class loaders require a function argument"`;
+
+exports[`constructorEnforcement should throw an error if an input is not a function 2`] = `"InternalError: class loaders require a function argument"`;
+
+exports[`constructorEnforcement should throw an error if an input is not a function 3`] = `"InternalError: class loaders require a function argument"`;

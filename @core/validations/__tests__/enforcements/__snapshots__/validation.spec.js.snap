@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`validationEnforcement should throw an error 1`] = `"InternalError: the validation must be a validation instance"`;
+
+exports[`validationEnforcement should throw an error 2`] = `"InternalError: the validation must be a validation instance"`;
+
+exports[`validationEnforcement should throw an error 3`] = `"InternalError: the validation must be a validation instance"`;

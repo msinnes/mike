@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClassError should express the correct error state 1`] = `"ClassError: ClassError: message"`;

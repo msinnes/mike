@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`nameEnforcement should throw an error if an input is not a string 1`] = `"InternalError: name must be a string"`;
+
+exports[`nameEnforcement should throw an error if an input is not a string 2`] = `"InternalError: name must be a string"`;
+
+exports[`nameEnforcement should throw an error if an input is not a string 3`] = `"InternalError: name must be a string"`;

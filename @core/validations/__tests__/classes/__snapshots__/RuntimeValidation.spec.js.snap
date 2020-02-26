@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RuntimeValidation should be a class 1`] = `"ClassError: Cannot call a class as a function"`;
+
+exports[`RuntimeValidation should throw a runtime error with the validation message 1`] = `"RuntimeError: error message"`;

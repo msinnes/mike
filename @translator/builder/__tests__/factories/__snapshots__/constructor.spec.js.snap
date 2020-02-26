@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`constructorFactory should validate properties 1`] = `"The property field1 on AstNode expected something else"`;

@@ -1,0 +1,13 @@
+{
+  "name": "@core/utils",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "utilities"
+  ],
+  "author": "Michael Sinnes",
+  "license": "ISC"
+}

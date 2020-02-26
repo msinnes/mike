@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`config/index should return an invalid response if any value is invalid 1`] = `"ValidationError: "`;

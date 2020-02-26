@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`arrayStringValidationFactory should be an array 1`] = `"Expected Array"`;
+
+exports[`arrayStringValidationFactory should put the field name in an error message 1`] = `"[0]: fieldName expected a string"`;

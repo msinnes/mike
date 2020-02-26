@@ -1,0 +1,54 @@
+{
+  "name": "interpreter",
+  "version": "1.0.0",
+  "scripts": {
+    "bootstrap": "lerna bootstrap && lerna link && lerna link convert",
+    "clean": "rm -rf ./node_modules ./package-lock.json",
+    "clean-bootstrap": "npm run clean && npm run bootstrap",
+    "coverage": "jest --coverage",
+    "start": "npm test -- --watchAll",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.0.1",
+    "jest": "^24.8.0",
+    "lerna": "^3.15.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**"
+    ],
+    "coverageDirectory": "./coverage",
+    "coveragePathIgnorePatterns": [
+      "/bin/",
+      "/node_modules/",
+      "/coverage/",
+      "/examples/",
+      "/build"
+    ],
+    "coverageReporters": [
+      "cobertura",
+      "lcov",
+      "text",
+      "text-summary"
+    ]
+  },
+  "dependencies": {
+    "@core/class": "file:@core/class",
+    "@core/errors": "file:@core/errors",
+    "@core/types": "file:@core/types",
+    "@core/utils": "file:@core/utils",
+    "@core/validations": "file:@core/validations",
+    "@shared/classes": "file:@shared/classes",
+    "@shared/constants": "file:@shared/constants",
+    "@translator/builder": "file:@translator/builder",
+    "@translator/lexer": "file:@translator/lexer",
+    "@translator/parser": "file:@translator/parser",
+    "pascal": "file:langs/pascal"
+  },
+  "description": "a configurable interpreter for any language"
+}

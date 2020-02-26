@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`abstractClassLoader should not be callable as a function 1`] = `"ClassError: Cannot call a class as a function"`;
+
+exports[`abstractClassLoader should not be instantiable 1`] = `"ClassError: Abstract classes cannot be instantiated"`;
+
+exports[`abstractClassLoader should still not be instantiable if it extends a class 1`] = `"ClassError: Abstract classes cannot be instantiated"`;
