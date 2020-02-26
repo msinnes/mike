@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseInterface should not be callable as a constructor 1`] = `"ClassError: Interfaces are not constructors"`;
+
+exports[`BaseInterface should prevent the constructor from being called like a function 1`] = `"ClassError: Cannot call an interface as a function"`;
