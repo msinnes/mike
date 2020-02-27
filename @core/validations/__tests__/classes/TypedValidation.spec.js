@@ -3,6 +3,7 @@ const isArray = require('@core/utils/isArray');
 
 const TypedValidation = require('../../classes/TypedValidation');
 const Validation = require('../../classes/Validation');
+const iTyped = require('../../interfaces/iTyped');
 
 const validateFnMock = jest.fn();
 const isMock = jest.fn();
@@ -23,7 +24,7 @@ describe('TypedValidation', () => {
     expect(isClass(TypedValidation)).toBe(true);
 
     expect(() => {
-      new TypedValidation();
+      new TypedValidation(() => {});
     }).toThrowErrorMatchingSnapshot();
 
     expect(() => {
@@ -35,9 +36,13 @@ describe('TypedValidation', () => {
     expect(TypedValidation.extends(Validation)).toBe(true);
   });
 
+  it('should implement iTyped', () => {
+    expect(TypedValidation.implements(iTyped)).toBe(true);
+  });
+
   describe('config.type', () => {
     it('should set the unsafe, _type property', () => {
-      const validation = new TestableValidation();
+      const validation = new TestableValidation(() => {});
       expect(validation._type).toBeDefined();
     });
 
@@ -58,7 +63,7 @@ describe('TypedValidation', () => {
     });
 
     it('should return _type.message if _type.is returns false', () => {
-      const validation = new TestableValidation();
+      const validation = new TestableValidation(() => {});
       isMock.mockReturnValueOnce(false);
       const result = validation.validate();
       expect(result.valid).toBe(false);

@@ -14,7 +14,7 @@ describe('ObjectTypedValidation', () => {
   let validation;
 
   beforeEach(() => {
-    validation = new TestableValidation();
+    validation = new TestableValidation(() => {});
     validateFnMock.mockReturnValue([true]);
   });
 

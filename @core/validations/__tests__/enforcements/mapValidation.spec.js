@@ -1,7 +1,7 @@
 const mapValidationEnforcement = require('../../enforcements/mapValidation');
 const Validation = require('../../classes/Validation');
 
-const testValidation = new Validation();
+const testValidation = new Validation(() => {});
 
 describe('mapValidationEnforcement', () => {
   it('should be a function', () => {

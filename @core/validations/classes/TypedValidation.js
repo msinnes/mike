@@ -4,7 +4,7 @@ const isUndefined = require('@core/utils/isUndefined');
 
 const Validation = require('./Validation');
 
-// const iTyped = require('../interfaces/iTyped');
+const iTyped = require('../interfaces/iTyped');
 const ValidationResult = require('../lib/ValidationResult');
 
 function TypedValidation() {}
@@ -19,4 +19,4 @@ TypedValidation.prototype.validate = function(value) {
   return Validation.prototype.validate.call(this, value);
 };
 
-module.exports = loadAbstractClass(TypedValidation).extend(Validation);
+module.exports = loadAbstractClass(TypedValidation).extend(Validation).implement(iTyped);
