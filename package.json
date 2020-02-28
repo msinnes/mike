@@ -47,8 +47,7 @@
     "@mike/translator-constants": "file:packages-translator/constants",
     "@mike/types": "file:packages-core/types",
     "@mike/utils": "file:packages-core/utils",
-    "@mike/validations": "file:packages-core/validations",
-    "pascal": "file:langs/pascal"
+    "@mike/validations": "file:packages-core/validations"
   },
   "description": "a configurable interpreter for any language"
 }

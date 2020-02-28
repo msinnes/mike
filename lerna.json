@@ -1,6 +1,6 @@
 {
   "packages": [
-    "langs/*",
+    "@e2e",
     "packages-core/*",
     "packages-translator/*"
   ],
