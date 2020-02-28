@@ -1,6 +1,6 @@
-const MapValidation = require('@core/validations/Map');
-const FunctionValidation = require('@core/validations/Function');
-const Validation = require('@core/validations/Validation');
+const MapValidation = require('@mike/validations/Map');
+const FunctionValidation = require('@mike/validations/Function');
+const Validation = require('@mike/validations/Validation');
 
 const regex = /^[a-zA-Z]+$/;
 

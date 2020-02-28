@@ -1,4 +1,4 @@
-const Validation = require('@core/validations/Validation');
+const Validation = require('@mike/validations/Validation');
 
 const regex = /^[A-Za-z]+$/;
 

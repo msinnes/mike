@@ -1,6 +1,6 @@
-const isNode = require('../../../../@core/utils/isNode');
-const Validation = require('@core/validations/Validation');
-const RuntimeValidation = require('@core/validations/Runtime');
+const isNode = require('@mike/utils/isNode');
+const Validation = require('@mike/validations/Validation');
+const RuntimeValidation = require('@mike/validations/Runtime');
 
 module.exports = RuntimeValidation(
   Validation(

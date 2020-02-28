@@ -1,5 +1,5 @@
-const BooleanValidation = require('@core/validations/Boolean');
-const RuntimeValidation = require('@core/validations/Runtime');
+const BooleanValidation = require('@mike/validations/Boolean');
+const RuntimeValidation = require('@mike/validations/Runtime');
 
 module.exports = RuntimeValidation(
   BooleanValidation(

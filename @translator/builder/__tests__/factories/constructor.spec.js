@@ -1,5 +1,5 @@
 const BaseAstNode = require('@shared/classes/BaseAstNode');
-const { isClass } = require('@core/class');
+const { isClass } = require('@mike/class');
 const constructorFactory = require('../../src/factories/constructor');
 
 describe('constructorFactory', () => {

@@ -1,5 +1,5 @@
-const { isClass } = require('@core/class');
-const Validation = require('@core/validations/Validation');
+const { isClass } = require('@mike/class');
+const Validation = require('@mike/validations/Validation');
 const BaseLexer = require('@shared/classes/BaseLexer');
 
 module.exports = Validation(

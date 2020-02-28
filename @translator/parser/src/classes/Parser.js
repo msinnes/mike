@@ -1,4 +1,4 @@
-const { loadAbstractClass } = require('@core/class');
+const { loadAbstractClass } = require('@mike/class');
 const BaseParser = require('@shared/classes/BaseParser');
 
 const contextFactory = require('../factories/context');

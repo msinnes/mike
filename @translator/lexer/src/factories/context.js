@@ -1,4 +1,4 @@
-const readOnlyVariable = require('../../../../@core/utils/readOnlyVariable');
+const readOnlyVariable = require('@mike/utils/readOnlyVariable');
 const Token = require('@shared/classes/Token');
 
 const characterServiceFactory = require('./characterService');

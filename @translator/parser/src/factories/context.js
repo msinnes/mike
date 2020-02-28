@@ -1,4 +1,4 @@
-const readOnlyVariable = require('../../../../@core/utils/readOnlyVariable');
+const readOnlyVariable = require('@mike/utils/readOnlyVariable');
 const tokenServiceFactory = require('./tokenService');
 
 const mapRules = require('../lib/mapRules');

@@ -1,5 +1,5 @@
-const ParseError = require('../../../../@core/errors/ParseError');
-const readOnlyVariable = require('../../../../@core/utils/readOnlyVariable');
+const ParseError = require('@mike/errors/ParseError');
+const readOnlyVariable = require('@mike/utils/readOnlyVariable');
 
 module.exports = (lexerConstructor, text) => {
   const lexer = new lexerConstructor(text);

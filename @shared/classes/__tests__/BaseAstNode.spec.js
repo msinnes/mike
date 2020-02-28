@@ -1,4 +1,4 @@
-const { isClass, loadClass } = require('@core/class');
+const { isClass, loadClass } = require('@mike/class');
 
 const BaseAstNode = require('../BaseAstNode');
 

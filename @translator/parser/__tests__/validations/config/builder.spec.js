@@ -1,5 +1,5 @@
 const BaseBuilder = require('@shared/classes/BaseBuilder');
-const { loadClass } = require('@core/class');
+const { loadClass } = require('@mike/class');
 
 const builder = require('../../../src/validations/config/builder');
 

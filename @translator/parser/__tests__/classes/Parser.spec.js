@@ -1,4 +1,4 @@
-const { loadClass, isClass } = require('@core/class');
+const { loadClass, isClass } = require('@mike/class');
 const BaseParser = require('@shared/classes/BaseParser');
 
 jest.mock('../../src/factories/context');

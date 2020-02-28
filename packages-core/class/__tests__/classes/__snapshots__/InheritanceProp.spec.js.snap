@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InheritanceProp instance instance.getInstanceProp should return an instance map 1`] = `
+Object {
+  "__constructor__": [Function],
+  "__prototype__": Object {},
+  "__super__": Object {
+    "__constructor__": [Function],
+    "__prototype__": Object {},
+    "__super__": Object {
+      "__constructor__": [Function],
+      "__prototype__": Object {},
+      "__super__": Object {
+        "__constructor__": [Function],
+        "__prototype__": Object {},
+      },
+    },
+  },
+}
+`;

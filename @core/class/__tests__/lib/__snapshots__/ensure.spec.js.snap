@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`ensure should throw an error if all types are valid 1`] = `
-"ClassError: Runtime Interface Error
-field1: Expected name1
-field2: Expected name2"
-`;

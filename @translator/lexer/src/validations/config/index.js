@@ -1,4 +1,4 @@
-const ObjectValidation = require('@core/validations/Object');
+const ObjectValidation = require('@mike/validations/Object');
 
 const caseSensitive = require('./caseSensitive');
 const reservedKeywords = require('./reservedKeywords');

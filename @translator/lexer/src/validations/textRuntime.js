@@ -1,5 +1,5 @@
-const StringValidation = require('@core/validations/String');
-const RuntimeValidation = require('@core/validations/Runtime');
+const StringValidation = require('@mike/validations/String');
+const RuntimeValidation = require('@mike/validations/Runtime');
 
 module.exports = RuntimeValidation(
   StringValidation(

@@ -38,11 +38,11 @@
     ]
   },
   "dependencies": {
-    "@core/class": "file:@core/class",
-    "@core/errors": "file:@core/errors",
-    "@core/types": "file:@core/types",
-    "@core/utils": "file:@core/utils",
-    "@core/validations": "file:@core/validations",
+    "@mike/class": "file:packages-core/class",
+    "@mike/errors": "file:packages-core/errors",
+    "@mike/types": "file:packages-core/types",
+    "@mike/utils": "file:packages-core/utils",
+    "@mike/validations": "file:packages-core/validations",
     "@shared/classes": "file:@shared/classes",
     "@shared/constants": "file:@shared/constants",
     "@translator/builder": "file:@translator/builder",

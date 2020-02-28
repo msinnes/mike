@@ -1,4 +1,4 @@
-const ObjectValidation = require('@core/validations/Object');
+const ObjectValidation = require('@mike/validations/Object');
 
 const aliases = require('./aliases');
 const properties = require('./properties');

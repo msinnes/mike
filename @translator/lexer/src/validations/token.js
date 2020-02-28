@@ -1,7 +1,7 @@
 const Token = require('@shared/classes/Token');
 
-const Validation = require('@core/validations/Validation');
-const Runtime = require('@core/validations/Runtime');
+const Validation = require('@mike/validations/Validation');
+const Runtime = require('@mike/validations/Runtime');
 
 module.exports = Runtime(
   Validation(

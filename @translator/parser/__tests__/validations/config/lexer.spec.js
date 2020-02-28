@@ -1,5 +1,5 @@
 const BaseLexer = require('@shared/classes/BaseLexer');
-const { loadClass } = require('@core/class');
+const { loadClass } = require('@mike/class');
 
 const lexer = require('../../../src/validations/config/lexer');
 

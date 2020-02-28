@@ -1,4 +1,4 @@
-const { loadClass, isClass } = require('@core/class');
+const { loadClass, isClass } = require('@mike/class');
 const BaseLexer = require('@shared/classes/BaseLexer');
 const Token = require('@shared/classes/Token');
 const { EOF } = require('@shared/constants');

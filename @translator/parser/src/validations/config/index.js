@@ -1,4 +1,4 @@
-const ObjectValidation = require('@core/validations/Object');
+const ObjectValidation = require('@mike/validations/Object');
 
 const builder = require('./builder');
 const lexer = require('./lexer');

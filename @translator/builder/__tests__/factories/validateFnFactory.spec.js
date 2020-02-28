@@ -1,5 +1,5 @@
 const BaseAstNode = require('@shared/classes/BaseAstNode');
-const { loadClass } = require('@core/class');
+const { loadClass } = require('@mike/class');
 
 const validateFnFactoryFactory = require('../../src/factories/validateFnFactory');
 const TestableNode = loadClass(function() {}).extend(BaseAstNode);

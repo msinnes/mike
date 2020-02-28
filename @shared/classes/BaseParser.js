@@ -1,4 +1,4 @@
-const { loadAbstractClass } = require('@core/class');
+const { loadAbstractClass } = require('@mike/class');
 
 function BaseParser() {}
 

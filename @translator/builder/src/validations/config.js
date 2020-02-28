@@ -1,4 +1,4 @@
-const MapValidation = require('@core/validations/Map');
+const MapValidation = require('@mike/validations/Map');
 
 const name = require('./name');
 const builder = require('./builder');

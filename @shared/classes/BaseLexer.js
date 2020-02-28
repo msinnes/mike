@@ -1,6 +1,6 @@
-const { loadAbstractClass } = require('@core/class');
+const { loadAbstractClass } = require('@mike/class');
 
-const StringValidation = require('@core/validations/String');
+const StringValidation = require('@mike/validations/String');
 
 const textValidation = StringValidation('text must be a string', { throwOnInvalid: true });
 /**

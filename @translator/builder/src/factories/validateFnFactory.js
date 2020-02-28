@@ -1,6 +1,6 @@
-const isArray = require('../../../../@core/utils/isArray');
-const isFunction = require('../../../../@core/utils/isFunction');
-const isNode = require('../../../../@core/utils/isNode');
+const isArray = require('@mike/utils/isArray');
+const isFunction = require('@mike/utils/isFunction');
+const isNode = require('@mike/utils/isNode');
 
 module.exports = checkFn => validation => {
   if (isFunction(validation)) {

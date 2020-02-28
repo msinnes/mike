@@ -1,4 +1,4 @@
-const { loadClass } = require('@core/class');
+const { loadClass } = require('@mike/class');
 const BaseAstNode = require('@shared/classes/BaseAstNode');
 
 const aliasFactory = require('../../src/factories/alias');

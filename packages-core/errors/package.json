@@ -1,0 +1,13 @@
+{
+  "name": "@mike/errors",
+  "version": "0.0.0",
+  "description": "A error library for the underlying j framework",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "errors"
+  ],
+  "author": "Michael Sinnes",
+  "license": "ISC"
+}

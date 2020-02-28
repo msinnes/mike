@@ -1,8 +1,8 @@
-const { loadAbstractClass } = require('@core/class');
+const { loadAbstractClass } = require('@mike/class');
 const BaseLexer = require('@shared/classes/BaseLexer');
 const Token = require('@shared/classes/Token');
 const { EOF } = require('@shared/constants');
-const UnexpectedToken = require('../../../../@core/errors/UnexpectedToken');
+const UnexpectedToken = require('@mike/errors/UnexpectedToken');
 
 const booleanRuntimeValidation = require('../validations/booleanRuntime');
 const tokenValidation = require('../validations/token');

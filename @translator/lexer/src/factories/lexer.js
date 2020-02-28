@@ -1,4 +1,4 @@
-const { loadClass } = require('@core/class');
+const { loadClass } = require('@mike/class');
 
 const Lexer = require('../classes/Lexer');
 

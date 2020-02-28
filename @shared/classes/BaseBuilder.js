@@ -1,4 +1,4 @@
-const { loadStaticClass } = require('@core/class');
+const { loadStaticClass } = require('@mike/class');
 
 function BaseBuilder() {}
 
