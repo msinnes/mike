@@ -1,4 +1,4 @@
-const lexer = require('@translator/lexer');
+const lexer = require('@mike/lexer');
 
 const { BEGIN, DIV, END, ID, INTEGER, INTEGER_DIV, PROGRAM, REAL, VAR } = require('../constants');
 

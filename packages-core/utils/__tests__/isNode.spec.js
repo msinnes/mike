@@ -1,4 +1,4 @@
-const BaseAstNode = require('@shared/classes/BaseAstNode');
+const BaseAstNode = require('@mike/translator-classes/BaseAstNode');
 const { loadClass } = require('@mike/class');
 const isNode = require('../isNode');
 

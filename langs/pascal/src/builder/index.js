@@ -1,4 +1,4 @@
-const builderConstructor = require('@translator/builder');
+const builderConstructor = require('@mike/builder');
 
 module.exports = builderConstructor({
   AssignmentStatement: {

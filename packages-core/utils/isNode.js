@@ -1,4 +1,4 @@
-const BaseAstNode = require('@shared/classes/BaseAstNode');
+const BaseAstNode = require('@mike/translator-classes/BaseAstNode');
 
 const isNode = node => node instanceof BaseAstNode;
 

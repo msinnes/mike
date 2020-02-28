@@ -1,4 +1,4 @@
-const parserConstructor = require('@translator/parser');
+const parserConstructor = require('@mike/lexer');
 
 const lexer = require('../lexer');
 const builder = require('../builder');
