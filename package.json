@@ -35,9 +35,11 @@
       "lcov",
       "text",
       "text-summary"
-    ]
+    ],
+    "modulePathIgnorePatterns": ["node_modules"]
   },
   "dependencies": {
+    "@mike/ast-node-visitor": "file:packages-translator/visitor",
     "@mike/builder": "file:packages-translator/builder",
     "@mike/class": "file:packages-core/class",
     "@mike/errors": "file:packages-core/errors",
