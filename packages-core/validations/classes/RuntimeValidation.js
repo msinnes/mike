@@ -4,7 +4,7 @@ const RuntimeError = require('@mike/errors/RuntimeError');
 const Validation = require('./Validation');
 
 function RuntimeValidation(validation) {
-  this._validateFn = value => {
+  this.validateFn = value => {
     const result = validation.validate(value);
     if (result.invalid) {
       throw new RuntimeError(result.data);

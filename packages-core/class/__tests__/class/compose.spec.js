@@ -1,3 +1,6 @@
+const isFunction = require('@mike/utils/isFunction');
+const isNumber = require('@mike/utils/isNumber');
+
 const composeClass = require('../../src/class/compose');
 const BaseClass = require('../../src/class/base');
 
@@ -15,6 +18,24 @@ jest.mock('../../src/class/extends');
 const extendsClassMock = require('../../src/class/extends');
 jest.mock('../../src/class/assert');
 const assertClassMock = require('../../src/class/assert');
+jest.mock('../../src/class/implement');
+const implementInterfaceMock = require('../../src/class/implement');
+jest.mock('../../src/class/implements');
+const implementsInterfaceMock = require('../../src/class/implements');
+jest.mock('../../src/interface/assert');
+const assertInterfaceMock = require('../../src/interface/assert');
+
+const interfaceLoader = require('../../src/loaders/interface');
+const typeLoader = require('../../src/loaders/type');
+
+const FunctionType = typeLoader('Function', isFunction);
+const NumberType = typeLoader('Number', isNumber);
+
+const iAdder = interfaceLoader({
+  value: NumberType,
+  addOne: FunctionType,
+  addTwo: FunctionType,
+});
 
 describe('composeClass', () => {
   const ObjectCreateOriginal = Object.create;
@@ -24,6 +45,7 @@ describe('composeClass', () => {
     Object.assign = ObjectAssignMock;
 
     extendClassMock.mockReturnValue({});
+    implementInterfaceMock.mockReturnValue({});
     ObjectCreateMock.mockImplementation(ObjectCreateOriginal);
     ObjectAssignMock.mockImplementation(ObjectAssignOriginal);
   });
@@ -108,6 +130,48 @@ describe('composeClass', () => {
       expect(extendClassMock).toHaveBeenCalled();
       expect(extendClassMock.mock.calls[0][0]).toEqual(ClassConstructorRef);
       expect(extendClassMock.mock.calls[0][1]).toEqual(BaseClass);
+    });
+
+    it('should have an implement property', () => {
+      expect(result.implement).toBeDefined();
+    });
+
+    it('implement should not be enumerable on the Class', () => {
+      expect(Object.keys(result).indexOf('implement')).toEqual(-1);
+    });
+
+    it('implement should call the assertClass function', () => {
+      result.implement(iAdder);
+      expect(assertInterfaceMock).toHaveBeenCalledTimes(1);
+      expect(assertInterfaceMock.mock.calls[0][0]).toEqual(iAdder);
+    });
+
+    it('implements should call the implementInterfaceMock function', () => {
+      result.implement(iAdder);
+      expect(implementInterfaceMock).toHaveBeenCalled();
+      expect(implementInterfaceMock.mock.calls[0][0]).toEqual(ClassConstructorRef);
+      expect(implementInterfaceMock.mock.calls[0][1]).toEqual(iAdder);
+    });
+
+    it('should have an implements property', () => {
+      expect(result.implements).toBeDefined();
+    });
+
+    it('implements should not be enumerable on the Class', () => {
+      expect(Object.keys(result).indexOf('implements')).toEqual(-1);
+    });
+
+    it('implements should call the assertClass function', () => {
+      result.implements(iAdder);
+      expect(assertInterfaceMock).toHaveBeenCalledTimes(1);
+      expect(assertInterfaceMock.mock.calls[0][0]).toEqual(iAdder);
+    });
+
+    it('implements should call the implementsInterfaceMock function', () => {
+      result.implements(iAdder);
+      expect(implementsInterfaceMock).toHaveBeenCalled();
+      expect(implementsInterfaceMock.mock.calls[0][0]).toEqual(ClassConstructorRef);
+      expect(implementsInterfaceMock.mock.calls[0][1]).toEqual(iAdder);
     });
   });
 });

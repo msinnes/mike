@@ -31,23 +31,23 @@ describe('Validation', () => {
     it('should set unsafe, internal variables', () => {
       const TEST_VALIDATE_FN = () => {};
       const instance1 = new Validation(TEST_VALIDATE_FN);
-      expect(instance1._validateFn).toBeDefined();
-      expect(instance1._validateFn).toEqual(TEST_VALIDATE_FN);
-      expect(instance1._allowEmpty).toBeDefined();
-      expect(instance1._allowEmpty).toEqual(false);
-      expect(instance1._throwOnInvalid).toBeDefined();
-      expect(instance1._throwOnInvalid).toEqual(false);
+      expect(instance1.validateFn).toBeDefined();
+      expect(instance1.validateFn).toEqual(TEST_VALIDATE_FN);
+      expect(instance1.allowEmpty).toBeDefined();
+      expect(instance1.allowEmpty).toEqual(false);
+      expect(instance1.throwOnInvalid).toBeDefined();
+      expect(instance1.throwOnInvalid).toEqual(false);
 
       const instance2 = new Validation(TEST_VALIDATE_FN, {
         allowEmpty: true,
         throwOnInvalid: true,
       });
-      expect(instance2._validateFn).toBeDefined();
-      expect(instance2._validateFn).toEqual(TEST_VALIDATE_FN);
-      expect(instance2._allowEmpty).toBeDefined();
-      expect(instance2._allowEmpty).toEqual(true);
-      expect(instance2._throwOnInvalid).toBeDefined();
-      expect(instance2._throwOnInvalid).toEqual(true);
+      expect(instance2.validateFn).toBeDefined();
+      expect(instance2.validateFn).toEqual(TEST_VALIDATE_FN);
+      expect(instance2.allowEmpty).toBeDefined();
+      expect(instance2.allowEmpty).toEqual(true);
+      expect(instance2.throwOnInvalid).toBeDefined();
+      expect(instance2.throwOnInvalid).toEqual(true);
     });
 
     describe('instance.validate', () => {

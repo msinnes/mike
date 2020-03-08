@@ -33,11 +33,11 @@ describe('ArrayValidation', () => {
 
   describe('_type', () => {
     it('_type.is should be the isArray utility', () => {
-      expect(validation._type.is).toBeInstanceOf(Function);
+      expect(validation.type.is).toBeInstanceOf(Function);
     });
 
     it('_type.message should be an expected array message', () => {
-      expect(validation._type.message).toEqual('Expected Array');
+      expect(validation.type.message).toEqual('Expected Array');
     });
   });
 

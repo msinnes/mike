@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`iValidation should throw an error if the config is invalid 1`] = `
+"ClassError: Runtime Interface Error
+allowEmpty: Expected Boolean
+throwOnInvalid: Expected Boolean
+validateFn: Expected Function"
+`;

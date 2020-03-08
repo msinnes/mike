@@ -6,13 +6,41 @@ const assertClass = require('./assert');
 const BaseClass = require('./base');
 const extendClass = require('./extend');
 const extendsClass = require('./extends');
+const implementInterface = require('./implement');
+const implementsInterface = require('./implements');
+
+const assertInterface = require('../interface/assert');
 
 const getAssertClassMessage = method => `Class.${method} can only take a class as an argument.`;
+const getAssertInterfaceMessage = method => `Class.${method} can only take an interface as an argument.`;
 
 const EXTEND_MESSAGE = getAssertClassMessage('extend');
 const EXTENDS_MESSAGE = getAssertClassMessage('extends');
 
+const IMPLEMENT_MESSAGE = getAssertInterfaceMessage('implement');
+const IMPLEMENTS_MESSAGE = getAssertInterfaceMessage('implements');
+
 const inheritancePropFactory = require('../factories/inheritanceProp');
+
+const getImplementPrivates = (ClassConstructor, abstract) => ({
+  implement: function(Interface) {
+    assertInterface(Interface, IMPLEMENT_MESSAGE);
+    const ImplementedClass = implementInterface(ClassConstructor, Interface, abstract);
+
+    const extendPrivates = getExtendPrivates(ImplementedClass, abstract);
+    const implementPrivates = getImplementPrivates(ImplementedClass, abstract);
+    privateVariables(ImplementedClass, {
+      ...extendPrivates,
+      ...implementPrivates,
+    });
+
+    return ImplementedClass;
+  },
+  implements: function(Interface) {
+    assertInterface(Interface, IMPLEMENTS_MESSAGE);
+    return implementsInterface(ClassConstructor, Interface);
+  },
+});
 
 const getExtendPrivates = (ClassConstructor, abstract) => ({
   extend: function(SuperClass) {
@@ -20,9 +48,11 @@ const getExtendPrivates = (ClassConstructor, abstract) => ({
     const ExtendedClass = extendClass(ClassConstructor, SuperClass, abstract);
 
     const extendPrivates = getExtendPrivates(ExtendedClass, abstract);
+    const implementPrivates = getImplementPrivates(ExtendedClass, abstract);
 
     privateVariables(ExtendedClass, {
       extends: extendPrivates.extends,
+      ...implementPrivates,
     });
     return ExtendedClass;
   },
@@ -40,6 +70,7 @@ module.exports = (_constructor, ClassConstructor, abstract) => {
 
   const privates = {
     ...getExtendPrivates(ClassConstructor, abstract),
+    ...getImplementPrivates(ClassConstructor, abstract),
     Class: inheritancePropFactory(CLASS, ClassConstructor, {
       super: BaseClass.Class,
     }),

@@ -1,6 +1,17 @@
 const validationEnforcement = require('../../enforcements/validation');
 const Validation = require('../../classes/Validation');
 const ArrayValidation = require('../../classes/ArrayValidation');
+const ObjectValidation = require('../../classes/ObjectValidation');
+const MapValidation = require('../../classes/MapValidation');
+
+const testValidation = new Validation(() => {});
+const testArrayValidation = new ArrayValidation(testValidation);
+const testObjectValidation = new ObjectValidation({
+  fieldOne: testValidation,
+});
+const testMapValidation = new MapValidation({
+  values: testValidation,
+});
 
 describe('validationEnforcement', () => {
   it('should be a function', () => {
@@ -10,12 +21,17 @@ describe('validationEnforcement', () => {
 
   it('should not throw an error', () => {
     expect(() => {
-      validationEnforcement(new Validation(() => {}, () => {}));
+      validationEnforcement(testValidation);
     }).not.toThrow();
     expect(() => {
-      validationEnforcement(new ArrayValidation(new Validation(() => {}, () => {})));
+      validationEnforcement(testArrayValidation);
     }).not.toThrow();
-    // TODO: also should do an objet validation
+    expect(() => {
+      validationEnforcement(testObjectValidation);
+    }).not.toThrow();
+    expect(() => {
+      validationEnforcement(testMapValidation);
+    }).not.toThrow();
   });
 
   it('should throw an error', () => {

@@ -4,7 +4,7 @@ const ObjectType = require('@mike/types/Object');
 const TypedValidation = require('./TypedValidation');
 
 function ObjectTypedValidation() {
-  this._type = ObjectType;
+  this.type = ObjectType;
 }
 
 module.exports = loadAbstractClass(ObjectTypedValidation).extend(TypedValidation);

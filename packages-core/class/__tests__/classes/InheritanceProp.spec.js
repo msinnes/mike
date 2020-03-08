@@ -78,6 +78,23 @@ describe('InheritanceProp', () => {
       });
     });
 
+    describe('instance.forEach', () => {
+      it('should have an forEach method', () => {
+        expect(instance.forEach).toBeDefined();
+        expect(instance.forEach).toBeInstanceOf(Function);
+      });
+
+      it('run a callback on each _super', () => {
+        const mockFn = jest.fn();
+        four.forEach(mockFn);
+        expect(mockFn).toHaveBeenCalledTimes(4);
+        expect(mockFn.mock.calls[0][0]).toEqual(four);
+        expect(mockFn.mock.calls[1][0]).toEqual(three);
+        expect(mockFn.mock.calls[2][0]).toEqual(two);
+        expect(mockFn.mock.calls[3][0]).toEqual(one);
+      });
+    });
+
     describe('instance.getIterator', () => {
       it('should have a getIterator method', () => {
         expect(instance.getIterator).toBeDefined();
@@ -125,6 +142,24 @@ describe('InheritanceProp', () => {
         expect(mockFn.mock.calls[0][0]).toEqual(four);
         expect(mockFn.mock.calls[1][0]).toEqual(three);
         expect(mockFn.mock.calls[2][0]).toEqual(two);
+      });
+    });
+
+    describe('instance.reduce', () => {
+      it('should have an reduce method', () => {
+        expect(instance.reduce).toBeDefined();
+        expect(instance.reduce).toBeInstanceOf(Function);
+      });
+
+      it('should call a callback with an accumulator and return the final accumulator', () => {
+        const supers = four.reduce((acc, Class) => {
+          acc.push(Class._super);
+          return acc;
+        }, []);
+        expect(supers[0]).toEqual(three);
+        expect(supers[1]).toEqual(two);
+        expect(supers[2]).toEqual(one);
+        expect(supers[3]).toBeUndefined();
       });
     });
   });

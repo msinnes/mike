@@ -1,0 +1,6 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`implementInterface should implement an interface 1`] = `
+"ClassError: Runtime Interface Error
+name: Expected String"
+`;

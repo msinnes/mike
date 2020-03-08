@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`BaseLexer LexerWithSkips getNextToken will throw an UnexpectedToken error if this._ctx.currentCharacter is defined, but there are no tokenizers or skips 1`] = `"UnexpectedToken: a"`;
+
+exports[`BaseLexer instance BareLexer checkAnalyzer should throw an error if the analyzer.check method does not return a boolean 1`] = `"RuntimeError: Check functions should return a boolean value"`;
+
+exports[`BaseLexer instance BareLexer getNextToken will throw an UnexpectedToken error if this._ctx.currentCharacter is defined, but there are no tokenizers or skips 1`] = `"UnexpectedToken: a"`;
+
+exports[`BaseLexer instance LexerWithTokenizers getNextToken should throw an error if tokenizer.exec returns anything but a token 1`] = `"RuntimeError: tokenizer exec functions should return instances of tokens"`;
+
+exports[`BaseLexer instance LexerWithTokenizers getNextToken will throw an UnexpectedToken error if this._ctx.currentCharacter is defined, but there are no tokenizers or skips 1`] = `"UnexpectedToken: a"`;
+
 exports[`BaseLexer should be an abstract class 1`] = `"ClassError: Cannot call a class as a function"`;
 
 exports[`BaseLexer should be an abstract class 2`] = `"ClassError: Abstract classes cannot be instantiated"`;

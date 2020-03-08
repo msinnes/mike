@@ -5,7 +5,7 @@ const ObjectTypedValidation = require('./ObjectTypedValidation');
 function MapValidation(mapValidationConfig = {}) {
   const valuesValidation = mapValidationConfig.values;
   const keysValidation = mapValidationConfig.keys;
-  this._validateFn = values => {
+  this.validateFn = values => {
     let valid = true;
     const results = Object.keys(values).reduce((acc, key) => {
       let keyResult;

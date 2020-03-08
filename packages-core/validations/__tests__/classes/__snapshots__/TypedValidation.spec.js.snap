@@ -3,3 +3,8 @@
 exports[`TypedValidation should be an abstract class 1`] = `"ClassError: Abstract classes cannot be instantiated"`;
 
 exports[`TypedValidation should be an abstract class 2`] = `"ClassError: Cannot call a class as a function"`;
+
+exports[`TypedValidation should implement iTyped 1`] = `
+"ClassError: Runtime Interface Error
+type: Expected Type"
+`;

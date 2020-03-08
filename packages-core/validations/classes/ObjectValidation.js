@@ -5,7 +5,7 @@ const ObjectTypedValidation = require('./ObjectTypedValidation');
 function ObjectValidation(objectValidationConfig = {}) {
   const validationKeys = Object.keys(objectValidationConfig);
 
-  this._validateFn = values => {
+  this.validateFn = values => {
     let valid = true;
     const results = validationKeys.reduce((acc, key) => {
       const currentValidator = objectValidationConfig[key];

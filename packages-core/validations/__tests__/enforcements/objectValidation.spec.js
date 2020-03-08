@@ -1,9 +1,17 @@
 const objectValidationEnforcement = require('../../enforcements/objectValidation');
 const Validation = require('../../classes/Validation');
 const ArrayValidation = require('../../classes/ArrayValidation');
+const ObjectValidation = require('../../classes/ObjectValidation');
+const MapValidation = require('../../classes/MapValidation');
 
-const validation = new Validation(() => {}, () => {});
-const arrayValidation = new ArrayValidation(validation);
+const testValidation = new Validation(() => {});
+const testArrayValidation = new ArrayValidation(testValidation);
+const testObjectValidation = new ObjectValidation({
+  fieldOne: testValidation,
+});
+const testMapValidation = new MapValidation({
+  values: testValidation,
+});
 
 describe('objectValidationEnforcement', () => {
   it('should be a function', () => {
@@ -17,16 +25,21 @@ describe('objectValidationEnforcement', () => {
     }).not.toThrow();
     expect(() => {
       objectValidationEnforcement({
-        field1: validation,
+        field1: testValidation,
       });
     }).not.toThrow();
     expect(() => {
       objectValidationEnforcement({
-        field1: validation,
-        field2: arrayValidation,
+        field1: testValidation,
+        field2: testArrayValidation,
       });
     }).not.toThrow();
-    // TODO: also should do an objet validation
+    expect(() => {
+      objectValidationEnforcement({
+        field1: testMapValidation,
+        field2: testObjectValidation,
+      });
+    }).not.toThrow();
   });
 
   it('should throw an error', () => {
@@ -42,6 +55,12 @@ describe('objectValidationEnforcement', () => {
     expect(() => {
       objectValidationEnforcement(() => {});
     }).toThrowErrorMatchingSnapshot();
-    // TODO: should also have validations on the fields of an object checked
+    expect(() => {
+      objectValidationEnforcement(() => {
+        objectValidationEnforcement({
+          field1: () => {},
+        });
+      });
+    }).toThrowErrorMatchingSnapshot();
   });
 });

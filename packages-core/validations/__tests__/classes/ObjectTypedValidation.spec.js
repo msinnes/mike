@@ -6,7 +6,7 @@ const TypedValidation = require('../../classes/TypedValidation');
 
 const validateFnMock = jest.fn();
 const TestableValidation = loadClass(function() {
-  this._type = loadType('name', validateFnMock);
+  this.type = loadType('name', validateFnMock);
 }).extend(ObjectTypedValidation);
 
 
@@ -34,13 +34,13 @@ describe('ObjectTypedValidation', () => {
     expect(ObjectTypedValidation.extends(TypedValidation)).toBe(true);
   });
 
-  describe('_type', () => {
-    it('_type.is should be the isObject utility', () => {
-      expect(validation._type.is).toBeInstanceOf(Function);
+  describe('type', () => {
+    it('type.is should be the isObject utility', () => {
+      expect(validation.type.is).toBeInstanceOf(Function);
     });
 
-    it('_type.message should be an expected array message', () => {
-      expect(validation._type.message).toEqual('Expected name');
+    it('type.message should be an expected array message', () => {
+      expect(validation.type.message).toEqual('Expected name');
     });
   });
 });

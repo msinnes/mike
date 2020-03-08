@@ -4,8 +4,8 @@ const ArrayType = require('@mike/types/Array');
 const TypedValidation = require('./TypedValidation');
 
 function ArrayValidation(validation) {
-  this._type = ArrayType;
-  this._validateFn = values => {
+  this.type = ArrayType;
+  this.validateFn = values => {
     let valid = true;
     const results = values.map(value => {
       const result = validation.validate(value);

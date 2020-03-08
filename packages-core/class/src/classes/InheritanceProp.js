@@ -14,6 +14,15 @@ InheritanceProp.prototype.extends = function(superCheck) {
   return found;
 };
 
+InheritanceProp.prototype.forEach = function(cb) {
+  const iterator = this.getIterator();
+  let current = iterator.next();
+  do {
+    cb(current);
+    current = iterator.next();
+  } while(current);
+};
+
 InheritanceProp.prototype.getInstanceProp = function() {
   const self = this;
   return Object.keys(self).reduce((acc, prop) => {
@@ -41,6 +50,14 @@ InheritanceProp.prototype.getIterator = function() {
   return {
     next,
   };
+};
+
+InheritanceProp.prototype.reduce = function(cb, acc) {
+  let accumulator = acc;
+  this.forEach(Class => {
+    accumulator = cb(accumulator, Class);
+  });
+  return accumulator;
 };
 
 InheritanceProp.prototype.while = function(checkCb) {

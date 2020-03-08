@@ -4,12 +4,16 @@ const isArray = require('@mike/utils/isArray');
 const TypedValidation = require('../../classes/TypedValidation');
 const Validation = require('../../classes/Validation');
 
+const iTyped = require('../../interfaces/iTyped');
+
 const validateFnMock = jest.fn();
 const isMock = jest.fn();
 
 const TestableValidation = loadClass(function() {
-  this._type = loadType('name', isMock);
+  this.type = loadType('name', isMock);
 }).extend(TypedValidation);
+
+const FailingValidation = loadClass(function() {}).extend(TypedValidation);
 
 describe('TypedValidation', () => {
   beforeEach(() => {
@@ -35,15 +39,17 @@ describe('TypedValidation', () => {
     expect(TypedValidation.extends(Validation)).toBe(true);
   });
 
-  // TODO: Add this back
-  // it('should implement iTyped', () => {
-  //   expect(TypedValidation.implements(iTyped)).toBe(true);
-  // });
+  it('should implement iTyped', () => {
+    expect(TypedValidation.implements(iTyped)).toBe(true);
+    expect(() => {
+      new FailingValidation(() => {});
+    }).toThrowErrorMatchingSnapshot();
+  });
 
   describe('config.type', () => {
     it('should set the unsafe, _type property', () => {
       const validation = new TestableValidation(() => {});
-      expect(validation._type).toBeDefined();
+      expect(validation.type).toBeDefined();
     });
 
     it('should call type.is method', () => {
