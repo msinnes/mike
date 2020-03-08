@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`visitorFactory should throw an error if a variable is assigned a value before it is declared 1`] = `"varaibles must be declared"`;
+
+exports[`visitorFactory should throw an error if a variable is used before it is declared 1`] = `"varaibles must be declared"`;

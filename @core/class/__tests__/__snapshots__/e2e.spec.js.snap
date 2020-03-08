@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`e2e should build and inherit interfaces 1`] = `"ClassError: Abstract classes cannot be instantiated"`;
-
-exports[`e2e should load and extend classes 1`] = `"ClassError: Cannot call a class as a function"`;
-
-exports[`e2e should load and extend classes 2`] = `"ClassError: Cannot call a class as a function"`;

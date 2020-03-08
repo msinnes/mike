@@ -1,0 +1,13 @@
+{
+  "name": "@mike/validations",
+  "version": "0.0.0",
+  "description": "A validation library for the underlying j framework",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "validations"
+  ],
+  "author": "Michael Sinnes",
+  "license": "ISC"
+}

@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`nullableEnforcement should throw an error if an input is not a boolean 1`] = `"InternalError: nullable must be a boolean"`;
-
-exports[`nullableEnforcement should throw an error if an input is not a boolean 2`] = `"InternalError: nullable must be a boolean"`;

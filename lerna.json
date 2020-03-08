@@ -1,9 +1,8 @@
 {
   "packages": [
-    "@core/*",
-    "@shared/*",
-    "@translator/*",
-    "langs/*"
+    "@e2e",
+    "packages-core/*",
+    "packages-translator/*"
   ],
   "version": "0.0.0"
 }

@@ -24,10 +24,10 @@
     ],
     "coverageDirectory": "./coverage",
     "coveragePathIgnorePatterns": [
+      "/@e2e/",
       "/bin/",
       "/node_modules/",
       "/coverage/",
-      "/examples/",
       "/build"
     ],
     "coverageReporters": [
@@ -35,20 +35,23 @@
       "lcov",
       "text",
       "text-summary"
+    ],
+    "modulePathIgnorePatterns": [
+      "node_modules"
     ]
   },
   "dependencies": {
-    "@core/class": "file:@core/class",
-    "@core/errors": "file:@core/errors",
-    "@core/types": "file:@core/types",
-    "@core/utils": "file:@core/utils",
-    "@core/validations": "file:@core/validations",
-    "@shared/classes": "file:@shared/classes",
-    "@shared/constants": "file:@shared/constants",
-    "@translator/builder": "file:@translator/builder",
-    "@translator/lexer": "file:@translator/lexer",
-    "@translator/parser": "file:@translator/parser",
-    "pascal": "file:langs/pascal"
+    "@mike/ast-node-visitor": "file:packages-translator/visitor",
+    "@mike/builder": "file:packages-translator/builder",
+    "@mike/class": "file:packages-core/class",
+    "@mike/errors": "file:packages-core/errors",
+    "@mike/lexer": "file:packages-translator/lexer",
+    "@mike/parser": "file:packages-translator/parser",
+    "@mike/translator-classes": "file:packages-translator/classes",
+    "@mike/translator-constants": "file:packages-translator/constants",
+    "@mike/types": "file:packages-core/types",
+    "@mike/utils": "file:packages-core/utils",
+    "@mike/validations": "file:packages-core/validations"
   },
   "description": "a configurable interpreter for any language"
 }
