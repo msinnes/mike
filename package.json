@@ -36,7 +36,9 @@
       "text",
       "text-summary"
     ],
-    "modulePathIgnorePatterns": ["node_modules"]
+    "modulePathIgnorePatterns": [
+      "node_modules"
+    ]
   },
   "dependencies": {
     "@mike/ast-node-visitor": "file:packages-translator/visitor",

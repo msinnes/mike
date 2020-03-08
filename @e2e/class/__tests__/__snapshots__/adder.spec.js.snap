@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`adder BaseAdder should be an abstract class 1`] = `"ClassError: Abstract classes cannot be instantiated"`;
+
+exports[`adder OffsetAdder should be an abstract class 1`] = `"ClassError: Abstract classes cannot be instantiated"`;

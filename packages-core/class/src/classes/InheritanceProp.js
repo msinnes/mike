@@ -19,7 +19,9 @@ InheritanceProp.prototype.getInstanceProp = function() {
   return ['constructor', 'prototype', 'super'].reduce((acc, prop) => {
     const value = self[prop];
     if(value) {
-      acc[`__${prop}__`] = value.getInstanceProp ? value.getInstanceProp() : value;
+      acc[`__${prop}__`] = value instanceof InheritanceProp
+        ? value.getInstanceProp()
+        : value;
     }
     return acc;
   }, {});
