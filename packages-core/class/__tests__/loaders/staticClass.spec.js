@@ -43,9 +43,9 @@ describe('staticClassLoader', () => {
 
   it('should have the correct Class prop', () => {
     expect(LoadedBaseAdder.Class).toMatchObject({
-      constructor: LoadedBaseAdder,
-      prototype: LoadedBaseAdder.prototype,
-      super: BaseClass.Class,
+      _constructor: LoadedBaseAdder,
+      _prototype: LoadedBaseAdder.prototype,
+      _super: BaseClass.Class,
     });
   });
 

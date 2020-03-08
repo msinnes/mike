@@ -56,9 +56,9 @@ describe('abstractClassLoader', () => {
   it('should have the correct Class prop', () => {
     const TestableClass = classLoader(function() {}).extend(LoadedBaseAdder);
     expect(TestableClass.Class).toMatchObject({
-      constructor: TestableClass,
-      prototype: TestableClass.prototype,
-      super: LoadedBaseAdder.Class,
+      _constructor: TestableClass,
+      _prototype: TestableClass.prototype,
+      _super: LoadedBaseAdder.Class,
     });
   });
 

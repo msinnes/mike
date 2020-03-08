@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`interfaceLoader should not be callable as a function 1`] = `"LoadedInterface is not a function"`;
+
+exports[`interfaceLoader should not be instantiable 1`] = `"LoadedInterface is not a constructor"`;

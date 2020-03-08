@@ -1,25 +1,14 @@
-const privateVariable = require('@mike/utils/privateVariable');
+const { CLASS } = require('../constants');
 
-const classPropFactory = require('../factories/inheritanceProp');
+const extendFactory = require('../factories/extend');
 const checkAbstractClass = require('../lib/checkAbstractClass');
 
-module.exports = (ChildClass, SuperClass, abstract) => {
+
+module.exports = extendFactory(CLASS, (Child, Super, abstract) => {
   function NewConstructor() {
-    SuperClass.Class.constructor.apply(this, arguments);
+    Super.Class._constructor.apply(this, arguments);
     abstract && checkAbstractClass(this, NewConstructor);
-    ChildClass.Class.constructor.apply(this, arguments);
+    Child.Class._constructor.apply(this, arguments);
   }
-
-  NewConstructor.prototype = Object.create(SuperClass.Class.prototype);
-  Object.assign(NewConstructor.prototype, ChildClass.Class.prototype);
-  NewConstructor.prototype.constructor = NewConstructor;
-
-  Object.assign(NewConstructor, SuperClass);
-  Object.assign(NewConstructor, ChildClass);
-
-  privateVariable(NewConstructor, 'Class', classPropFactory(NewConstructor, {
-    super: SuperClass.Class,
-  }));
-
   return NewConstructor;
-};
+});

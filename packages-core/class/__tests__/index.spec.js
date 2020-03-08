@@ -3,9 +3,11 @@ const BaseClass = require('../src/class/base');
 const Class = require('../src');
 const abstractClassLoader = require('../src/loaders/abstractClass');
 const classLoader = require('../src/loaders/class');
+const interfaceLoader = require('../src/loaders/interface');
 const staticClassLoader = require('../src/loaders/staticClass');
 const typeLoader = require('../src/loaders/type');
 const isClass = require('../src/class/is');
+const isInterface = require('../src/interface/is');
 const isType = require('../src/type/is');
 
 function Bare() {
@@ -52,12 +54,16 @@ describe('Class.loader', () => {
     expect(Class.loadAbstractClass).toEqual(abstractClassLoader);
     expect(Class.loadClass).toBeDefined();
     expect(Class.loadClass).toEqual(classLoader);
+    expect(Class.loadInterface).toBeDefined();
+    expect(Class.loadInterface).toEqual(interfaceLoader);
     expect(Class.loadStaticClass).toBeDefined();
     expect(Class.loadStaticClass).toEqual(staticClassLoader);
     expect(Class.loadType).toBeDefined();
     expect(Class.loadType).toEqual(typeLoader);
     expect(Class.isClass).toBeDefined();
     expect(Class.isClass).toEqual(isClass);
+    expect(Class.isInterface).toBeDefined();
+    expect(Class.isInterface).toEqual(isInterface);
     expect(Class.isType).toBeDefined();
     expect(Class.isType).toEqual(isType);
   });
@@ -65,19 +71,19 @@ describe('Class.loader', () => {
   describe('Class.Class', () => {
     it('should load the expected Class.Class objects', () => {
       expect(LoadedBare.Class).toMatchObject({
-        constructor: LoadedBare,
-        prototype: Bare.prototype,
-        super: BaseClass.Class,
+        _constructor: LoadedBare,
+        _prototype: Bare.prototype,
+        _super: BaseClass.Class,
       });
       expect(LoadedStatic.Class).toMatchObject({
-        constructor: LoadedStatic,
-        prototype: Static.prototype,
-        super: BaseClass.Class,
+        _constructor: LoadedStatic,
+        _prototype: Static.prototype,
+        _super: BaseClass.Class,
       });
       expect(LoadedProtoAndStatic.Class).toMatchObject({
-        constructor: LoadedProtoAndStatic,
-        prototype: ProtoAndStatic.prototype,
-        super: BaseClass.Class,
+        _constructor: LoadedProtoAndStatic,
+        _prototype: ProtoAndStatic.prototype,
+        _super: BaseClass.Class,
       });
     });
   });

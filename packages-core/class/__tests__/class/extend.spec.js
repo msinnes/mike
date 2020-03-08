@@ -20,13 +20,13 @@ ProtoAndStaticClass.addTwo = function(x) {
 };
 ProtoAndStaticClass.value = 'name';
 
-BareClass.Class = inheritancePropFactory(BareClass, {
+BareClass.Class = inheritancePropFactory('Class', BareClass, {
   super: BaseClass.Class,
 });
-ProtoClass.Class = inheritancePropFactory(ProtoClass, {
+ProtoClass.Class = inheritancePropFactory('Class', ProtoClass, {
   super: BaseClass.Class,
 });
-ProtoAndStaticClass.Class = inheritancePropFactory(ProtoAndStaticClass, {
+ProtoAndStaticClass.Class = inheritancePropFactory('Class', ProtoAndStaticClass, {
   super: BaseClass.Class,
 });
 
@@ -89,12 +89,12 @@ describe('extendClass', () => {
   describe('NewClass.Class inheritance', () => {
 
     it('should have the right pojc props', () => {
-      expect(BareExtendsProto.Class.constructor).toEqual(BareExtendsProto);
-      expect(BareExtendsProto.Class.prototype).toEqual(BareExtendsProto.prototype);
+      expect(BareExtendsProto.Class._constructor).toEqual(BareExtendsProto);
+      expect(BareExtendsProto.Class._prototype).toEqual(BareExtendsProto.prototype);
     });
 
     it('should point to the correct _super', () => {
-      expect(BareExtendsProto.Class.super).toEqual(ProtoClass.Class);
+      expect(BareExtendsProto.Class._super).toEqual(ProtoClass.Class);
     });
   });
 });

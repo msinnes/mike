@@ -8,7 +8,7 @@ describe('InheritanceProp', () => {
   const interfaceRef = function () {};
   const configRef = {
     super: superRef,
-    interface: interfaceRef,
+    implements: interfaceRef,
   };
 
   let one;
@@ -32,22 +32,20 @@ describe('InheritanceProp', () => {
 
   describe('instance', () => {
     it('should set instance.constructor', () => {
-      expect(instance.constructor).toBeDefined();
-      expect(instance.constructor).toEqual(pojcRef);
+      expect(instance._constructor).toBeDefined();
+      expect(instance._constructor).toEqual(pojcRef);
     });
 
     it('should default instance.prototype to false', () => {
-      expect(instance.prototype).toBeDefined();
-      expect(instance.prototype).toEqual(pojcRef.prototype);
+      expect(instance._prototype).toBeDefined();
+      expect(instance._prototype).toEqual(pojcRef.prototype);
     });
 
     it('should have a super prop', () => {
-      expect(instance.super).toBeDefined();
-      expect(instance.super).toEqual(superRef);
+      expect(instance._super).toBeDefined();
+      expect(instance._super).toEqual(superRef);
     });
-  });
 
-  describe('instance', () => {
     describe('instance.extends', () => {
       it('should have an extends method', () => {
         expect(instance.extends).toBeDefined();

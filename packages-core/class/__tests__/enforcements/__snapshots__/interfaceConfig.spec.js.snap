@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`interfaceConfigEnforcement should throw an error if an input is not a string 1`] = `"InternalError: interface configs must be a map of types"`;
+
+exports[`interfaceConfigEnforcement should throw an error if an input is not a string 2`] = `"InternalError: interface configs must be a map of types"`;
+
+exports[`interfaceConfigEnforcement should throw an error if an input is not a string 3`] = `"InternalError: interface configs must be a map of types"`;
+
+exports[`interfaceConfigEnforcement should throw an error if an input is not a string 4`] = `"InternalError: interface configs must be a map of types"`;

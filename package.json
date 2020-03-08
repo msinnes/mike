@@ -24,10 +24,10 @@
     ],
     "coverageDirectory": "./coverage",
     "coveragePathIgnorePatterns": [
+      "/@e2e/",
       "/bin/",
       "/node_modules/",
       "/coverage/",
-      "/examples/",
       "/build"
     ],
     "coverageReporters": [

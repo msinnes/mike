@@ -1,8 +1,8 @@
 function InheritanceProp(pojc, config) {
-  this.constructor = pojc;
-  this.prototype = pojc.prototype;
+  this._constructor = pojc;
+  this._prototype = pojc.prototype;
   if (config && config.super) {
-    this.super = config.super;
+    this._super = config.super;
   }
 }
 
@@ -16,10 +16,10 @@ InheritanceProp.prototype.extends = function(superCheck) {
 
 InheritanceProp.prototype.getInstanceProp = function() {
   const self = this;
-  return ['constructor', 'prototype', 'super'].reduce((acc, prop) => {
+  return Object.keys(self).reduce((acc, prop) => {
     const value = self[prop];
     if(value) {
-      acc[`__${prop}__`] = value instanceof InheritanceProp
+      acc[`_${prop}__`] = value instanceof InheritanceProp
         ? value.getInstanceProp()
         : value;
     }
@@ -33,7 +33,7 @@ InheritanceProp.prototype.getIterator = function() {
   function next() {
     if(current) {
       const returnValue = current;
-      current = current.super;
+      current = current._super;
       return returnValue;
     }
   }

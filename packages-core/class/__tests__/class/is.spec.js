@@ -5,7 +5,7 @@ const inheritancePropFactory = require('../../src/factories/inheritanceProp');
 
 function ExtendedClass() {}
 
-ExtendedClass.Class = inheritancePropFactory(ExtendedClass, {
+ExtendedClass.Class = inheritancePropFactory('Class', ExtendedClass, {
   super: BaseClass.Class,
 });
 

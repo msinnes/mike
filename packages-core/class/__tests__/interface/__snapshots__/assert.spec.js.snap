@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`assertInterface should throw an error if input is not an interface 1`] = `"ClassError: message"`;
+
+exports[`assertInterface should throw an error if input is not an interface 2`] = `"ClassError: message"`;
+
+exports[`assertInterface should throw an error if input is not an interface 3`] = `"ClassError: message"`;

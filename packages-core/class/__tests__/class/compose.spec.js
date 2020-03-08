@@ -57,8 +57,9 @@ describe('composeClass', () => {
   it('should call the inheritancePropFactory', () => {
     composeClass(_constructorRef, ClassConstructorRef, BaseClass);
     expect(inheritancePropFactoryMock).toHaveBeenCalledTimes(1);
-    expect(inheritancePropFactoryMock.mock.calls[0][0]).toEqual(ClassConstructorRef);
-    expect(inheritancePropFactoryMock.mock.calls[0][1]).toEqual({ _super: BaseClass.Class });
+    expect(inheritancePropFactoryMock.mock.calls[0][0]).toEqual('Class');
+    expect(inheritancePropFactoryMock.mock.calls[0][1]).toEqual(ClassConstructorRef);
+    expect(inheritancePropFactoryMock.mock.calls[0][2]).toEqual({ _super: BaseClass.Class });
   });
 
   describe('returns', () => {

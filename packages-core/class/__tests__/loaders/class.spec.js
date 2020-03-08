@@ -78,8 +78,9 @@ describe('classLoader', () => {
   it('should call the classPropFactory', () => {
     const ClassConstructor = classLoader(_constructorRef);
     expect(inheritancePropFactoryMock).toHaveBeenCalledTimes(1);
-    expect(inheritancePropFactoryMock.mock.calls[0][0]).toEqual(ClassConstructor);
-    expect(inheritancePropFactoryMock.mock.calls[0][1]).toEqual({ super: BaseClass.Class });
+    expect(inheritancePropFactoryMock.mock.calls[0][0]).toEqual('Class');
+    expect(inheritancePropFactoryMock.mock.calls[0][1]).toEqual(ClassConstructor);
+    expect(inheritancePropFactoryMock.mock.calls[0][2]).toEqual({ super: BaseClass.Class });
   });
 
   it('should call the extendsClass function', () => {
@@ -181,9 +182,9 @@ describe('classLoader', () => {
 
       it('should have the correct Class prop', () => {
         expect(LoadedProtoAndStatic.Class).toMatchObject({
-          constructor: LoadedProtoAndStatic,
-          prototype: LoadedProtoAndStatic.prototype,
-          super: BaseClass.Class,
+          _constructor: LoadedProtoAndStatic,
+          _prototype: LoadedProtoAndStatic.prototype,
+          _super: BaseClass.Class,
         });
       });
 

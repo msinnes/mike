@@ -1,5 +1,11 @@
+const ClassInheritanceProp = require('../classes/ClassInheritanceProp');
 const InheritanceProp = require('../classes/InheritanceProp');
 
-module.exports = (pojc, config) => {
+const { CLASS } = require('../constants');
+
+module.exports = (type, pojc, config) => {
+  if (type === CLASS) {
+    return new ClassInheritanceProp(pojc, config);
+  }
   return new InheritanceProp(pojc, config);
 };

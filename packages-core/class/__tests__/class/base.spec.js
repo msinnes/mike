@@ -14,8 +14,8 @@ describe('BaseClass', () => {
 
   it('should have an empty object on static BaseClass property', () => {
     expect(BaseClass.Class).toMatchObject({
-      constructor: BaseClass,
-      prototype: BaseClass.prototype,
+      _constructor: BaseClass,
+      _prototype: BaseClass.prototype,
     });
   });
 
@@ -39,7 +39,7 @@ describe('BaseClass', () => {
     ExtendingClass.prototype = Object.create(BaseClass.prototype);
     ExtendingClass.prototype.constructor = ExtendingClass;
 
-    privateVariable(ExtendingClass, 'Class', inheritancePropFactory(ExtendingClass, {
+    privateVariable(ExtendingClass, 'Class', inheritancePropFactory('Class', ExtendingClass, {
       super: BaseClass.Class,
     }));
     const instance = new ExtendingClass();

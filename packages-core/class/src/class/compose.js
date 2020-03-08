@@ -1,5 +1,7 @@
 const privateVariables = require('@mike/utils/privateVariables');
 
+const { CLASS } = require('../constants');
+
 const assertClass = require('./assert');
 const BaseClass = require('./base');
 const extendClass = require('./extend');
@@ -38,7 +40,7 @@ module.exports = (_constructor, ClassConstructor, abstract) => {
 
   const privates = {
     ...getExtendPrivates(ClassConstructor, abstract),
-    Class: inheritancePropFactory(ClassConstructor, {
+    Class: inheritancePropFactory(CLASS, ClassConstructor, {
       super: BaseClass.Class,
     }),
   };
