@@ -1,5 +1,5 @@
-jest.mock('../../../src/factories/analyzerValidation');
-const analyzerValidationFactoryMock = require('../../../src/factories/analyzerValidation');
+jest.mock('../../src/factories/analyzerValidation');
+const analyzerValidationFactoryMock = require('../../src/factories/analyzerValidation');
 
 describe('skips', () => {
   afterEach(() => {
@@ -8,7 +8,7 @@ describe('skips', () => {
   });
 
   it('should have called the getAnalyzerValidation factory', () => {
-    require('../../../src/validations/config/skips');
+    require('../../src/validations/skips');
     expect(analyzerValidationFactoryMock).toHaveBeenCalledTimes(1);
     expect(analyzerValidationFactoryMock.mock.calls[0][0]).toEqual('skips');
     expect(analyzerValidationFactoryMock.mock.calls[0][1]).toEqual(true);

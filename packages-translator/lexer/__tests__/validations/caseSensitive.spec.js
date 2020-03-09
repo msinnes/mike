@@ -1,4 +1,4 @@
-const caseSensitive = require('../../../src/validations/config/caseSensitive');
+const caseSensitive = require('../../src/validations/caseSensitive');
 
 describe('caseSensitive', () => {
   it('should be an Object', () => {

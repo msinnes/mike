@@ -1,7 +1,7 @@
-const caseSensitive = require('../../../src/validations/config/caseSensitive');
-const reservedKeywords = require('../../../src/validations/config/reservedKeywords');
-const skips = require('../../../src/validations/config/skips');
-const tokenizers = require('../../../src/validations/config/tokenizers');
+const caseSensitive = require('../../src/validations/caseSensitive');
+const reservedKeywords = require('../../src/validations/reservedKeywords');
+const skips = require('../../src/validations/skips');
+const tokenizers = require('../../src/validations/tokenizers');
 
 const caseSensitiveMock = jest.fn();
 const reservedKeywordsMock = jest.fn();
@@ -13,7 +13,7 @@ reservedKeywords.validate = reservedKeywordsMock;
 skips.validate = skipsMock;
 tokenizers.validate = tokenizersMock;
 
-const configValidation = require('../../../src/validations/config');
+const configValidation = require('../../src/validations/config');
 
 describe('config/index', () => {
   const caseSensitiveTestValue = {};

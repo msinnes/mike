@@ -1,4 +1,4 @@
-const reservedKeywords = require('../../../src/validations/config/reservedKeywords');
+const reservedKeywords = require('../../src/validations/reservedKeywords');
 
 describe('reservedKeywords', () => {
   it('should be an Object', () => {
