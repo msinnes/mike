@@ -1,10 +1,12 @@
 const { loadAbstractClass } = require('@mike/class');
 const UnexpectedToken = require('@mike/errors/UnexpectedToken');
-const { EOF } = require('@mike/translator-constants');
 const StringValidation = require('@mike/validations/String');
 const BooleanValidation = require('@mike/validations/Boolean');
 const RuntimeValidation = require('@mike/validations/Runtime');
 const Validation = require('@mike/validations/Validation');
+
+const { EOF } = require('@mike/translator-constants');
+const iLexer = require('@mike/translator-interfaces/iLexer');
 
 const Token = require('./Token');
 
@@ -24,35 +26,35 @@ const tokenValidation = RuntimeValidation(
 );
 
 
-function BaseLexer(text) {
+function Lexer(text) {
   textValidation.validate(text);
   this.text = text;
 }
 
-BaseLexer.prototype.checkAnalyzer = function({ check }) {
-  const found = check(this._ctx);
+Lexer.prototype.checkAnalyzer = function({ check }) {
+  const found = check(this.ctx);
   booleanRuntimeValidation.validate(found);
   return found;
 };
 
-BaseLexer.prototype.getNextToken = function() {
-  while(this._ctx.currentCharacter) {
-    const skip = this._skips.find(a => this.checkAnalyzer(a));
+Lexer.prototype.getNextToken = function() {
+  while(this.ctx.currentCharacter) {
+    const skip = this.skips.find(a => this.checkAnalyzer(a));
     if (skip) {
-      skip.exec(this._ctx);
+      skip.exec(this.ctx);
       continue;
     }
 
-    const tokenizer = this._tokenizers.find(a => this.checkAnalyzer(a));
+    const tokenizer = this.tokenizers.find(a => this.checkAnalyzer(a));
     if (tokenizer) {
-      const token = tokenizer.exec(this._ctx);
+      const token = tokenizer.exec(this.ctx);
       tokenValidation.validate(token);
       return token;
     }
 
-    throw new UnexpectedToken(this._ctx.currentCharacter);
+    throw new UnexpectedToken(this.ctx.currentCharacter);
   }
   return new Token(EOF);
 };
 
-module.exports = loadAbstractClass(BaseLexer);
+module.exports = loadAbstractClass(Lexer).implement(iLexer);

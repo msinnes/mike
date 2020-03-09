@@ -49,6 +49,8 @@
     "@mike/parser": "file:packages-translator/parser",
     "@mike/translator-classes": "file:packages-translator/classes",
     "@mike/translator-constants": "file:packages-translator/constants",
+    "@mike/translator-interfaces": "file:packages-translator/interfaces",
+    "@mike/translator-types": "file:packages-translator/types",
     "@mike/types": "file:packages-core/types",
     "@mike/utils": "file:packages-core/utils",
     "@mike/validations": "file:packages-core/validations"

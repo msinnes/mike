@@ -1,26 +1,32 @@
 const { loadClass } = require('@mike/class');
 
 const { EOF } = require('@mike/translator-constants');
+const Context = require('@mike/translator-classes/Context');
+const iLexer = require('@mike/translator-interfaces/iLexer');
 
-const BaseLexer = require('../BaseLexer');
+const Lexer = require('../Lexer');
 const Token = require('../Token');
 
-describe('BaseLexer', () => {
+const TestableContext = loadClass(function() {
+  this.constructor.expose(this, 'currentCharacter', () => 'a');
+}).extend(Context);
+
+describe('Lexer', () => {
   let TestableLexer;
   beforeEach(() => {
     TestableLexer = loadClass(function() {
-      this._skips = [];
-      this._tokenizers = [];
-      this._ctx = {};
-    }).extend(BaseLexer);
+      this.skips = [];
+      this.tokenizers = [];
+      this.ctx = new TestableContext();
+    }).extend(Lexer);
   });
   it('should be an abstract class', () => {
     expect(() => {
-      BaseLexer('string');
+      Lexer('string');
     }).toThrowErrorMatchingSnapshot();
 
     expect(() => {
-      new BaseLexer('string');
+      new Lexer('string');
     }).toThrowErrorMatchingSnapshot();
   });
 
@@ -38,26 +44,30 @@ describe('BaseLexer', () => {
     }).toThrowErrorMatchingSnapshot();
   });
 
+  it('should implement iLexer', () => {
+    expect(TestableLexer.implements(iLexer)).toBe(true);
+  });
+
   describe('instance', () => {
     describe('BareLexer', () => {
-      function EmptyClass() {
-        this._skips = [];
-        this._tokenizers = [];
-        this._ctx = {};
+      function LexerClass() {
+        this.skips = [];
+        this.tokenizers = [];
+        this.ctx = new TestableContext();
       }
       let BareLexer, instance;
       beforeEach(() => {
-        BareLexer = loadClass(EmptyClass).extend(BaseLexer);
+        BareLexer = loadClass(LexerClass).extend(Lexer);
         instance = new BareLexer('some text');
       });
 
       it('should set the unsafe class props', () => {
-        expect(instance._skips).toBeDefined();
-        expect(instance._skips).toMatchObject([]);
-        expect(instance._tokenizers).toBeDefined();
-        expect(instance._tokenizers).toMatchObject([]);
-        expect(instance._ctx).toBeDefined();
-        expect(instance._ctx).toMatchObject({});
+        expect(instance.skips).toBeDefined();
+        expect(instance.skips).toMatchObject([]);
+        expect(instance.tokenizers).toBeDefined();
+        expect(instance.tokenizers).toMatchObject([]);
+        expect(instance.ctx).toBeDefined();
+        expect(instance.ctx).toMatchObject({});
       });
 
       describe('checkAnalyzer', () => {
@@ -72,16 +82,16 @@ describe('BaseLexer', () => {
           expect(instance.checkAnalyzer).toBeInstanceOf(Function);
         });
 
-        it('should call the check mock with _ctx and return whatever the check method returns', () => {
+        it('should call the check mock with ctx and return whatever the check method returns', () => {
           expect(instance.checkAnalyzer(mockAnalyzer)).toBe(true);
           expect(checkMock).toHaveBeenCalledTimes(1);
-          expect(checkMock.mock.calls[0][0]).toEqual(instance._ctx);
+          expect(checkMock.mock.calls[0][0]).toEqual(instance.ctx);
 
           checkMock.mockImplementationOnce(() => false);
 
           expect(instance.checkAnalyzer(mockAnalyzer)).toBe(false);
           expect(checkMock).toHaveBeenCalledTimes(2);
-          expect(checkMock.mock.calls[1][0]).toEqual(instance._ctx);
+          expect(checkMock.mock.calls[1][0]).toEqual(instance.ctx);
         });
 
         it('should throw an error if the analyzer.check method does not return a boolean', () => {
@@ -98,15 +108,24 @@ describe('BaseLexer', () => {
           expect(instance.getNextToken).toBeInstanceOf(Function);
         });
 
-        it('it should return an EOF token if there is no this._ctx.currentCharacter', () => {
+        it('it should return an EOF token if there is no this.ctx.currentCharacter', () => {
+          const EmptyContext = loadClass(function() {}).extend(Context);
+
+          function LexerClass() {
+            this.skips = [];
+            this.tokenizers = [];
+            this.ctx = new EmptyContext();
+          }
+          const TestableLexer = loadClass(LexerClass).extend(Lexer);
+          const instance = new TestableLexer('test');
           const response = instance.getNextToken();
           expect(response).toBeInstanceOf(Token);
           expect(response.type).toEqual(EOF);
           expect(response.value).toEqual(null);
         });
 
-        it('will throw an UnexpectedToken error if this._ctx.currentCharacter is defined, but there are no tokenizers or skips', () => {
-          instance._ctx = { currentCharacter: 'a' };
+        it('will throw an UnexpectedToken error if this.ctx.currentCharacter is defined, but there are no tokenizers or skips', () => {
+          instance.ctx = { currentCharacter: 'a' };
           expect(() => {
             instance.getNextToken();
           }).toThrowErrorMatchingSnapshot();
@@ -123,15 +142,13 @@ describe('BaseLexer', () => {
       };
       const testToken = new Token('type', 'type');
       function WithTokenizers() {
-        this._skips = [];
-        this._tokenizers = [testTokenizer];
-        this._ctx = {
-          currentCharacter: 'a',
-        };
+        this.skips = [];
+        this.tokenizers = [testTokenizer];
+        this.ctx = new TestableContext();
       }
       let LexerWithTokenizers, instance;
       beforeEach(() => {
-        LexerWithTokenizers = loadClass(WithTokenizers).extend(BaseLexer);
+        LexerWithTokenizers = loadClass(WithTokenizers).extend(Lexer);
         instance = new LexerWithTokenizers('some text');
         checkMock.mockImplementation(() => true);
         execMock.mockImplementation(() => testToken);
@@ -141,9 +158,9 @@ describe('BaseLexer', () => {
         it('should call the check and exec mocks if the tokenizer is supposed to run', () => {
           instance.getNextToken();
           expect(checkMock).toHaveBeenCalledTimes(1);
-          expect(checkMock.mock.calls[0][0]).toEqual(instance._ctx);
+          expect(checkMock.mock.calls[0][0]).toEqual(instance.ctx);
           expect(execMock).toHaveBeenCalledTimes(1);
-          expect(execMock.mock.calls[0][0]).toEqual(instance._ctx);
+          expect(execMock.mock.calls[0][0]).toEqual(instance.ctx);
         });
 
         it('should pass out the return from tokenizer.exec', () => {
@@ -157,9 +174,9 @@ describe('BaseLexer', () => {
           }).toThrowErrorMatchingSnapshot();
         });
 
-        it('will throw an UnexpectedToken error if this._ctx.currentCharacter is defined, but there are no tokenizers or skips', () => {
+        it('will throw an UnexpectedToken error if this.ctx.currentCharacter is defined, but there are no tokenizers or skips', () => {
           checkMock.mockImplementationOnce(() => false);
-          instance._ctx = { currentCharacter: 'a' };
+          instance.ctx = { currentCharacter: 'a' };
           expect(() => {
             instance.getNextToken();
           }).toThrowErrorMatchingSnapshot();
@@ -183,15 +200,13 @@ describe('BaseLexer', () => {
     };
     const testToken = new Token('type', 'type');
     function WithTokenizers() {
-      this._skips = [testSkip];
-      this._tokenizers = [testTokenizer];
-      this._ctx = {
-        currentCharacter: 'a',
-      };
+      this.skips = [testSkip];
+      this.tokenizers = [testTokenizer];
+      this.ctx = new TestableContext();
     }
     let LexerWithSkips, instance;
     beforeEach(() => {
-      LexerWithSkips = loadClass(WithTokenizers).extend(BaseLexer);
+      LexerWithSkips = loadClass(WithTokenizers).extend(Lexer);
       instance = new LexerWithSkips('some text');
       skipCheckMock.mockImplementation(() => false);
       tokenizerCheckMock.mockImplementation(() => true);
@@ -203,18 +218,18 @@ describe('BaseLexer', () => {
         skipCheckMock.mockImplementationOnce(() => true);
         instance.getNextToken();
         expect(skipCheckMock).toHaveBeenCalledTimes(2);
-        expect(skipCheckMock.mock.calls[0][0]).toEqual(instance._ctx);
+        expect(skipCheckMock.mock.calls[0][0]).toEqual(instance.ctx);
         expect(skipExecMock).toHaveBeenCalledTimes(1);
-        expect(skipExecMock.mock.calls[0][0]).toEqual(instance._ctx);
+        expect(skipExecMock.mock.calls[0][0]).toEqual(instance.ctx);
         expect(tokenizerCheckMock).toHaveBeenCalledTimes(1);
-        expect(tokenizerCheckMock.mock.calls[0][0]).toEqual(instance._ctx);
+        expect(tokenizerCheckMock.mock.calls[0][0]).toEqual(instance.ctx);
         expect(tokenizerExecMock).toHaveBeenCalledTimes(1);
-        expect(tokenizerExecMock.mock.calls[0][0]).toEqual(instance._ctx);
+        expect(tokenizerExecMock.mock.calls[0][0]).toEqual(instance.ctx);
       });
 
-      it('will throw an UnexpectedToken error if this._ctx.currentCharacter is defined, but there are no tokenizers or skips', () => {
+      it('will throw an UnexpectedToken error if this.ctx.currentCharacter is defined, but there are no tokenizers or skips', () => {
         tokenizerCheckMock.mockImplementationOnce(() => false);
-        instance._ctx = { currentCharacter: 'a' };
+        instance.ctx = { currentCharacter: 'a' };
         expect(() => {
           instance.getNextToken();
         }).toThrowErrorMatchingSnapshot();

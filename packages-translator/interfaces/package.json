@@ -1,0 +1,13 @@
+{
+  "name": "@mike/translator-interfaces",
+  "version": "1.0.0",
+  "description": "interface to use in the translator",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "classes"
+  ],
+  "author": "Michael Sinnes",
+  "license": "ISC"
+}

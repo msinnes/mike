@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`contextFactory should expose characterService.currentCharacter as a read only variable 1`] = `"InternalError: currentCharacter is read only"`;

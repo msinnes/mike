@@ -1,14 +1,14 @@
 const { loadClass } = require('@mike/class');
-const BaseLexer = require('@mike/translator-classes/BaseLexer');
+const Lexer = require('@mike/translator-classes/Lexer');
 
-const contextFactory = require('./context');
+const LexerContext = require('../context/LexerContext');
 
 module.exports = (tokenizers, skips, reseervedKeywordService) => {
   function ExtendedLexer(text) {
-    this._tokenizers = tokenizers;
-    this._skips = skips;
-    this._ctx = contextFactory(text, reseervedKeywordService);
+    this.tokenizers = tokenizers;
+    this.skips = skips;
+    this.ctx = new LexerContext(text, reseervedKeywordService);
   }
 
-  return loadClass(ExtendedLexer).extend(BaseLexer);
+  return loadClass(ExtendedLexer).extend(Lexer);
 };
