@@ -1,14 +1,14 @@
 const { isClass, loadClass } = require('@mike/class');
 
-const BaseAstNode = require('../BaseAstNode');
+const AstNode = require('../AstNode');
 
-describe('BaseAstNode', () => {
+describe('AstNode', () => {
   it('should be a class', () => {
-    expect(isClass(BaseAstNode)).toBe(true);
+    expect(isClass(AstNode)).toBe(true);
   });
 
   it('should require a type parameter', () => {
-    const TestNode = loadClass(function() {}).extend(BaseAstNode);
+    const TestNode = loadClass(function() {}).extend(AstNode);
     expect(() => {
       new TestNode('type');
     }).not.toThrow();
@@ -22,7 +22,7 @@ describe('BaseAstNode', () => {
 
   it('should be a class', () => {
     expect(() => {
-      BaseAstNode('type');
+      AstNode('type');
     }).toThrowErrorMatchingSnapshot();
   });
 });

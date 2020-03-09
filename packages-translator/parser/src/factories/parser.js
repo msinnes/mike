@@ -9,10 +9,10 @@ module.exports = (
   syntaxRules
 ) => {
   function ExtendedParser() {
-    this._builder = builder;
-    this._lexer = lexer;
-    this._rootSyntaxRule = rootSyntaxRule;
-    this._syntaxRules = syntaxRules;
+    this.builder = builder;
+    this.lexer = lexer;
+    this.rootSyntaxRule = rootSyntaxRule;
+    this.syntaxRules = syntaxRules;
   }
 
   return loadClass(ExtendedParser).extend(Parser);

@@ -1,4 +1,7 @@
-const BaseParser = require('@mike/translator-classes/BaseParser');
+const Parser = require('@mike/translator-classes/Parser');
+const Builder = require('@mike/translator-classes/Builder');
+const Lexer = require('@mike/translator-classes/Lexer');
+
 
 const parserFactory = require('../../src/factories/parser');
 
@@ -9,13 +12,13 @@ describe('parserFactory', () => {
   });
 
   it('should return a class that extends Lexer', () => {
-    expect(parserFactory().extends(BaseParser)).toBe(true);
+    expect(parserFactory().extends(Parser)).toBe(true);
   });
 
   describe('instance', () => {
-    const builderRef = {};
-    const lexerRef = {};
-    const rootSyntaxRuleRef = {};
+    const builderRef = Builder;
+    const lexerRef = Lexer;
+    const rootSyntaxRuleRef = function() {};
     const syntaxRulesRef = {};
     const ExtendedParser = parserFactory(
       builderRef,
@@ -26,10 +29,10 @@ describe('parserFactory', () => {
 
     it('should assign tokenizers and skips', () => {
       const instance = new ExtendedParser('');
-      expect(instance._builder).toEqual(builderRef);
-      expect(instance._lexer).toEqual(lexerRef);
-      expect(instance._rootSyntaxRule).toEqual(rootSyntaxRuleRef);
-      expect(instance._syntaxRules).toEqual(syntaxRulesRef);
+      expect(instance.builder).toEqual(builderRef);
+      expect(instance.lexer).toEqual(lexerRef);
+      expect(instance.rootSyntaxRule).toEqual(rootSyntaxRuleRef);
+      expect(instance.syntaxRules).toEqual(syntaxRulesRef);
     });
   });
 });

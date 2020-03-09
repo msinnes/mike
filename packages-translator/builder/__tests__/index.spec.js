@@ -1,4 +1,4 @@
-const BaseBuilder = require('@mike/translator-classes/BaseBuilder');
+const Builder = require('@mike/translator-classes/Builder');
 
 const builder = require('../src');
 
@@ -87,8 +87,8 @@ describe('builder', () => {
     expect(composeBuilderMock.mock.calls[1][2]).toEqual(checkRef);
   });
 
-  it('should return a class that extends BaseBuilder', () => {
-    expect(builder(configRef).extends(BaseBuilder)).toBe(true);
+  it('should return a class that extends Builder', () => {
+    expect(builder(configRef).extends(Builder)).toBe(true);
   });
 
   it('should have the fields from the input class on the new builder', () => {

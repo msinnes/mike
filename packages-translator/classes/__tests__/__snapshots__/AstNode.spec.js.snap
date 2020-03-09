@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AstNode should be a class 1`] = `"ClassError: Cannot call a class as a function"`;
+
+exports[`AstNode should require a type parameter 1`] = `"ValidationError: type must be a string"`;
+
+exports[`AstNode should require a type parameter 2`] = `"ValidationError: type must be a string"`;

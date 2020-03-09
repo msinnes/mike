@@ -1,5 +1,5 @@
 const { loadClass } = require('@mike/class');
-const BaseAstNode = require('@mike/translator-classes/BaseAstNode');
+const BaseAstNode = require('@mike/translator-classes/AstNode');
 
 module.exports = (name, properties, validations = {}) => {
   function AstNode(...args) {

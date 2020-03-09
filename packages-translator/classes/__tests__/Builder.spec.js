@@ -1,13 +1,13 @@
-const BaseBuilder = require('../BaseBuilder');
+const Builder = require('../Builder');
 
-describe('BaseBuilder', () => {
+describe('Builder', () => {
   it('should be a static class', () => {
     expect(() => {
-      BaseBuilder('string');
+      Builder('string');
     }).toThrowErrorMatchingSnapshot();
 
     expect(() => {
-      new BaseBuilder('string');
+      new Builder('string');
     }).toThrowErrorMatchingSnapshot();
   });
 });

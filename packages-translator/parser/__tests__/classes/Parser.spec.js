@@ -1,5 +1,8 @@
 const { loadClass, isClass } = require('@mike/class');
-const BaseParser = require('@mike/translator-classes/BaseParser');
+const BaseParser = require('@mike/translator-classes/Parser');
+
+const Builder = require('@mike/translator-classes/Builder');
+const Lexer = require('@mike/translator-classes/Lexer');
 
 jest.mock('../../src/factories/context');
 const contextFactoryMock = require('../../src/factories/context');
@@ -13,7 +16,10 @@ textRuntimeValidation.validate = textRuntimeValidateMock;
 const Parser = require('../../src/classes/Parser');
 
 describe('Parser', () => {
-  function EmptyClass() {}
+  function EmptyClass() {
+    this.builder = Builder;
+    this.lexer = Lexer;
+  }
   const contextFactoryMockReturnRef = {};
   const wrapRuleMockReturnRef = jest.fn();
   const createContextRef = jest.fn();
@@ -23,7 +29,7 @@ describe('Parser', () => {
   beforeEach(() => {
     BareParser = loadClass(EmptyClass).extend(Parser);
     instance = new BareParser();
-    instance._createContext = createContextRef;
+    instance.createContext = createContextRef;
     contextFactoryMock.mockReturnValue(contextFactoryMockReturnRef);
     wrapRuleMock.mockReturnValue(wrapRuleMockReturnRef);
     createContextRef.mockReturnValue(contextRef);
@@ -50,36 +56,36 @@ describe('Parser', () => {
   });
 
   it('should set the unsafe class props', () => {
-    expect(instance._lexer).toBeDefined();
-    expect(instance._lexer).toMatchObject({});
-    expect(instance._builder).toBeDefined();
-    expect(instance._builder).toMatchObject({});
-    expect(instance._syntaxRules).toBeDefined();
-    expect(instance._syntaxRules).toMatchObject({});
-    expect(instance._syntaxRules).toBeDefined();
-    expect(instance._rootSyntaxRule).toBeInstanceOf(Function);
+    expect(instance.lexer).toBeDefined();
+    expect(instance.lexer).toEqual(Lexer);
+    expect(instance.builder).toBeDefined();
+    expect(instance.builder).toEqual(Builder);
+    expect(instance.syntaxRules).toBeDefined();
+    expect(instance.syntaxRules).toMatchObject({});
+    expect(instance.syntaxRules).toBeDefined();
+    expect(instance.rootSyntaxRule).toBeInstanceOf(Function);
   });
 
-  describe('instance._createContext', () => {
+  describe('instance.createContext', () => {
     it('should be a function', () => {
       const localInstance = new BareParser();
-      expect(localInstance._createContext).toBeDefined();
-      expect(localInstance._createContext).toBeInstanceOf(Function);
+      expect(localInstance.createContext).toBeDefined();
+      expect(localInstance.createContext).toBeInstanceOf(Function);
     });
 
     it('should call contextFactory mock with the right args', () => {
       const textRef = 'text';
       const localInstance = new BareParser();
-      localInstance._createContext(textRef);
+      localInstance.createContext(textRef);
       expect(contextFactoryMock).toHaveBeenCalledTimes(1);
-      expect(contextFactoryMock.mock.calls[0][0]).toEqual(localInstance._builder);
-      expect(contextFactoryMock.mock.calls[0][1]).toEqual(localInstance._lexer);
-      expect(contextFactoryMock.mock.calls[0][2]).toEqual(localInstance._syntaxRules);
+      expect(contextFactoryMock.mock.calls[0][0]).toEqual(localInstance.builder);
+      expect(contextFactoryMock.mock.calls[0][1]).toEqual(localInstance.lexer);
+      expect(contextFactoryMock.mock.calls[0][2]).toEqual(localInstance.syntaxRules);
       expect(contextFactoryMock.mock.calls[0][3]).toEqual(textRef);
     });
 
     it('should return a context', () => {
-      expect(instance._createContext('test')).toEqual(contextFactoryMockReturnRef);
+      expect(instance.createContext('test')).toEqual(contextFactoryMockReturnRef);
     });
   });
 
@@ -95,7 +101,7 @@ describe('Parser', () => {
       expect(textRuntimeValidateMock).toHaveBeenCalledTimes(1);
     });
 
-    it('should call instance._createContext with the right args', () => {
+    it('should call instance.createContext with the right args', () => {
       const textRef = 'text';
       instance.parse(textRef);
       expect(createContextRef).toHaveBeenCalledTimes(1);
@@ -105,7 +111,7 @@ describe('Parser', () => {
     it('should call wrapRuleMock with the right args', () => {
       instance.parse('text');
       expect(wrapRuleMock).toHaveBeenCalledTimes(1);
-      expect(wrapRuleMock.mock.calls[0][0]).toEqual(instance._rootSyntaxRule);
+      expect(wrapRuleMock.mock.calls[0][0]).toEqual(instance.rootSyntaxRule);
       expect(wrapRuleMock.mock.calls[0][1]).toEqual(contextRef);
     });
 

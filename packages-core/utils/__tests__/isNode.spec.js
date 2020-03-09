@@ -1,15 +1,15 @@
-const BaseAstNode = require('@mike/translator-classes/BaseAstNode');
+const AstNode = require('@mike/translator-classes/AstNode');
 const { loadClass } = require('@mike/class');
 const isNode = require('../isNode');
 
 function Node() {}
-const TestableNode = loadClass(function() {}).extend(BaseAstNode);
+const TestableNode = loadClass(function() {}).extend(AstNode);
 
 const node1 = new TestableNode('Node');
 const node2 = [node1];
 const node3 = new Node('Node');
 
-describe('isNode (extends BaseAstNode)', () => {
+describe('isNode (extends AstNode)', () => {
   it('should be a function', () => {
     expect(isNode).toBeDefined();
     expect(isNode).toBeInstanceOf(Function);

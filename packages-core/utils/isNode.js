@@ -1,6 +1,6 @@
-const BaseAstNode = require('@mike/translator-classes/BaseAstNode');
+const AstNode = require('@mike/translator-classes/AstNode');
 
-const isNode = node => node instanceof BaseAstNode;
+const isNode = node => node instanceof AstNode;
 
 // TODO: this should be in the translator packages
 // TODO: this does not need to traverse the entire list if the node fails validation.

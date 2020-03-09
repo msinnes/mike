@@ -1,8 +1,8 @@
-const BaseAstNode = require('@mike/translator-classes/BaseAstNode');
+const AstNode = require('@mike/translator-classes/AstNode');
 const { loadClass } = require('@mike/class');
 
 const validateFnFactoryFactory = require('../../src/factories/validateFnFactory');
-const TestableNode = loadClass(function() {}).extend(BaseAstNode);
+const TestableNode = loadClass(function() {}).extend(AstNode);
 
 describe('validateFnFactoryFactory', () => {
   const mockCheckFn = jest.fn();

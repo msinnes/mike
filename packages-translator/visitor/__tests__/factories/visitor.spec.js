@@ -1,5 +1,5 @@
 const { loadClass } = require('@mike/class');
-const BaseAstNode = require('@mike/translator-classes/BaseAstNode');
+const AstNode = require('@mike/translator-classes/AstNode');
 
 const visitorFactory = require('../../src/factories/visitor');
 
@@ -44,7 +44,7 @@ function  ProgramNode(type, name, block) {
   this.block = block;
 }
 
-const ProgramClass = loadClass(ProgramNode).extend(BaseAstNode);
+const ProgramClass = loadClass(ProgramNode).extend(AstNode);
 
 function  BlockNode(type, declarations, compountStatement) {
   this.type = type;
@@ -52,7 +52,7 @@ function  BlockNode(type, declarations, compountStatement) {
   this.compountStatement = compountStatement;
 }
 
-const BlockClass = loadClass(BlockNode).extend(BaseAstNode);
+const BlockClass = loadClass(BlockNode).extend(AstNode);
 
 function  VariableDeclarationNode(type, varNode, typeNode) {
   this.type = type;
@@ -60,7 +60,7 @@ function  VariableDeclarationNode(type, varNode, typeNode) {
   this.typeNode = typeNode;
 }
 
-const VariableDeclarationClass = loadClass(VariableDeclarationNode).extend(BaseAstNode);
+const VariableDeclarationClass = loadClass(VariableDeclarationNode).extend(AstNode);
 
 function  VariableTypeNode(type, token) {
   this.type = type;
@@ -68,14 +68,14 @@ function  VariableTypeNode(type, token) {
   this.value = token.value;
 }
 
-const VariableTypeClass = loadClass(VariableTypeNode).extend(BaseAstNode);
+const VariableTypeClass = loadClass(VariableTypeNode).extend(AstNode);
 
 function CompoundNode(type, children) {
   this.type = type;
   this.children = children;
 }
 
-const CompoundClass = loadClass(CompoundNode).extend(BaseAstNode);
+const CompoundClass = loadClass(CompoundNode).extend(AstNode);
 
 function AssignNode(type, left, op, right) {
   this.type = type;
@@ -84,7 +84,7 @@ function AssignNode(type, left, op, right) {
   this.right = right;
 }
 
-const AssignClass = loadClass(AssignNode).extend(BaseAstNode);
+const AssignClass = loadClass(AssignNode).extend(AstNode);
 
 function VarNode(type, token) {
   this.type = type;
@@ -92,7 +92,7 @@ function VarNode(type, token) {
   this.value = token.value;
 }
 
-const VarClass = loadClass(VarNode).extend(BaseAstNode);
+const VarClass = loadClass(VarNode).extend(AstNode);
 
 function BinOpNode(type, op, left, right) {
   this.type = type;
@@ -101,14 +101,14 @@ function BinOpNode(type, op, left, right) {
   this.right = right;
 }
 
-const BinOpClass = loadClass(BinOpNode).extend(BaseAstNode);
+const BinOpClass = loadClass(BinOpNode).extend(AstNode);
 
 function NumbersNode(type, numbers) {
   this.type = type;
   this.numbers = numbers;
 }
 
-const NumbersClass = loadClass(NumbersNode).extend(BaseAstNode);
+const NumbersClass = loadClass(NumbersNode).extend(AstNode);
 
 function NumberNode(type, token) {
   this.type = type;
@@ -116,7 +116,7 @@ function NumberNode(type, token) {
   this.value = token.value;
 }
 
-const NumberClass = loadClass(NumberNode).extend(BaseAstNode);
+const NumberClass = loadClass(NumberNode).extend(AstNode);
 
 const BIN_OP_TYPES = {
   PLUS: 'PLUS',
@@ -164,11 +164,11 @@ function getRunVisitor() {
     const varName = node.left.value;
     scope.set(varName, resolvedValues.right);
   }
-  
+
   function visitVar(node, { scope }) {
     return scope.get(node.value);
   }
-  
+
   function visitBinOp(node, ctx) {
     const { resolvedValues: { left, right } } = ctx;
     switch(node.op) {
@@ -184,15 +184,15 @@ function getRunVisitor() {
       return;
     }
   }
-  
+
   function visitNumber(node) {
     return node.value;
   }
-  
+
   function visitNumbers(node, { resolvedValues: { numbers } }) {
     return numbers.reduce((acc, num) => acc += num, 0);
   }
-  
+
   return {
     Assign: visitAssign,
     BinOp: visitBinOp,

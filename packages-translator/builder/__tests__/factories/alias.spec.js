@@ -1,8 +1,8 @@
 const { loadClass } = require('@mike/class');
-const BaseAstNode = require('@mike/translator-classes/BaseAstNode');
+const AstNode = require('@mike/translator-classes/AstNode');
 
 const aliasFactory = require('../../src/factories/alias');
-const TestableNode = loadClass(function() {}).extend(BaseAstNode);
+const TestableNode = loadClass(function() {}).extend(AstNode);
 
 const Name1 = new TestableNode('Name1');
 const Name2 = new TestableNode('Name2');

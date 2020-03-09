@@ -1,4 +1,4 @@
-const BaseAstNode = require('@mike/translator-classes/BaseAstNode');
+const BaseAstNode = require('@mike/translator-classes/AstNode');
 const { isClass } = require('@mike/class');
 const constructorFactory = require('../../src/factories/constructor');
 
@@ -8,7 +8,7 @@ describe('constructorFactory', () => {
     expect(constructorFactory).toBeInstanceOf(Function);
   });
 
-  it('should return a class that extends BaseAstNode', () => {
+  it('should return a class that extends AstNode', () => {
     const AstNode = constructorFactory();
     expect(isClass(AstNode)).toBe(true);
     expect(AstNode.extends(BaseAstNode)).toBe(true);

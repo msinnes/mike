@@ -1,9 +1,9 @@
 const { loadClass } = require('@mike/class');
-const BaseAstNode = require('@mike/translator-classes/BaseAstNode');
+const AstNode = require('@mike/translator-classes/AstNode');
 
 const nodeRuntimeValidation = require('../../src/validations/nodeRuntime');
 
-const TestableNode = loadClass(function() {}).extend(BaseAstNode);
+const TestableNode = loadClass(function() {}).extend(AstNode);
 
 describe('nodeRuntimeValidation', () => {
   function runTest(value, expected) {

@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`BaseParser should be an abstract class 1`] = `"ClassError: Cannot call a class as a function"`;
-
-exports[`BaseParser should be an abstract class 2`] = `"ClassError: Abstract classes cannot be instantiated"`;

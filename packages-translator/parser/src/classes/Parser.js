@@ -1,30 +1,30 @@
 const { loadAbstractClass } = require('@mike/class');
-const BaseParser = require('@mike/translator-classes/BaseParser');
+const BaseParser = require('@mike/translator-classes/Parser');
 
 const contextFactory = require('../factories/context');
 const textRuntimeValidation = require('../validations/textRuntime');
 const wrapRule = require('../lib/wrapRule');
 
 function Parser() {
-  this._builder = {};
-  this._lexer = {};
-  this._rootSyntaxRule = function() {};
-  this._syntaxRules = {};
+  this.builder = {};
+  this.lexer = {};
+  this.rootSyntaxRule = function() {};
+  this.syntaxRules = {};
 }
 
-Parser.prototype._createContext = function(text) {
+Parser.prototype.createContext = function(text) {
   return contextFactory(
-    this._builder,
-    this._lexer,
-    this._syntaxRules,
+    this.builder,
+    this.lexer,
+    this.syntaxRules,
     text
   );
 };
 
 Parser.prototype.parse = function(text) {
   textRuntimeValidation.validate(text);
-  const context = this._createContext(text);
-  const wrappedRootSyntaxRule = wrapRule(this._rootSyntaxRule, context);
+  const context = this.createContext(text);
+  const wrappedRootSyntaxRule = wrapRule(this.rootSyntaxRule, context);
   return wrappedRootSyntaxRule(context);
 };
 

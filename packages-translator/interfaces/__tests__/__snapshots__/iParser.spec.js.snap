@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`iParser should throw an error if the config is invalid 1`] = `
+"ClassError: Runtime Interface Error
+builder: Expected BuilderClass
+lexer: Expected LexerClass
+rootSyntaxRule: Expected Function
+syntaxRules: Expected SyntaxRules"
+`;

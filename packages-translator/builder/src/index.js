@@ -1,5 +1,5 @@
 const { loadClass } = require('@mike/class');
-const BaseBuilder = require('@mike/translator-classes/BaseBuilder');
+const Builder = require('@mike/translator-classes/Builder');
 
 const configValidation = require('./validations/config');
 const aliasFactory = require('./factories/alias');
@@ -18,5 +18,5 @@ module.exports = config => {
   });
 
 
-  return loadClass(BuilderClass).extend(BaseBuilder);
+  return loadClass(BuilderClass).extend(Builder);
 };
