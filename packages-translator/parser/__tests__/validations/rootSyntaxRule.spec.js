@@ -1,4 +1,4 @@
-const rootSyntaxRule = require('../../../src/validations/config/rootSyntaxRule');
+const rootSyntaxRule = require('../../src/validations/rootSyntaxRule');
 
 describe('rootSyntaxRule', () => {
   it('should be an Object', () => {

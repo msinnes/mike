@@ -1,7 +1,7 @@
 const BaseLexer = require('@mike/translator-classes/Lexer');
 const { loadClass } = require('@mike/class');
 
-const lexer = require('../../../src/validations/config/lexer');
+const lexer = require('../../src/validations/lexer');
 
 const TestableLexer = loadClass(function () {}).extend(BaseLexer);
 

@@ -1,4 +1,4 @@
-const syntaxRules = require('../../../src/validations/config/syntaxRules');
+const syntaxRules = require('../../src/validations/syntaxRules');
 
 describe('syntaxRules', () => {
   it('should be an Object', () => {

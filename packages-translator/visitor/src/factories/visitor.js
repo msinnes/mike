@@ -10,8 +10,10 @@ module.exports = visitors => {
         if(isArray(value)) {
           resolvedValues[key] = value.map(item => visit(item, ctx));
         } else {
-          resolvedValues[key] = visit(value, ctx); 
+          resolvedValues[key] = visit(value, ctx);
         }
+      } else {
+        resolvedValues[key] = value;
       }
     });
     const visitor = visitors[node.type];

@@ -1,5 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Parser instance instance.parse should throw an error if no test is passed in 1`] = `"RuntimeError: parsers can only parse string input"`;
+
+exports[`Parser instance instance.wrapRule should throw a runtime error if the rule does not return an AstNode 1`] = `"RuntimeError: Syntax Rules should return an instance of AstNode"`;
+
 exports[`Parser should be an abstract class 1`] = `"ClassError: Cannot call a class as a function"`;
 
 exports[`Parser should be an abstract class 2`] = `"ClassError: Abstract classes cannot be instantiated"`;

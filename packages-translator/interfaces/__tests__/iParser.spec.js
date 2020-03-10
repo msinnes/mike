@@ -16,6 +16,7 @@ describe('iParser', () => {
         lexer: Lexer,
         rootSyntaxRule: function() {},
         syntaxRules: {},
+        createContext: function() {},
       });
     }).not.toThrow();
   });

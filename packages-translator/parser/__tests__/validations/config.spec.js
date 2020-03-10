@@ -1,7 +1,7 @@
-const builder = require('../../../src/validations/config/builder');
-const lexer = require('../../../src/validations/config/lexer');
-const rootSyntaxRule = require('../../../src/validations/config/rootSyntaxRule');
-const syntaxRules = require('../../../src/validations/config/syntaxRules');
+const builder = require('../../src/validations/builder');
+const lexer = require('../../src/validations/lexer');
+const rootSyntaxRule = require('../../src/validations/rootSyntaxRule');
+const syntaxRules = require('../../src/validations/syntaxRules');
 
 const builderMock = jest.fn();
 const lexerMock = jest.fn();
@@ -13,7 +13,7 @@ lexer.validate = lexerMock;
 rootSyntaxRule.validate = rootSyntaxRuleMock;
 syntaxRules.validate = syntaxRulesMock;
 
-const configValidation = require('../../../src/validations/config');
+const configValidation = require('../../src/validations/config');
 
 describe('config/index', () => {
   const builderTestValue = {};

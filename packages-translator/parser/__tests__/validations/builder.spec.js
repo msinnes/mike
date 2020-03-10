@@ -1,7 +1,7 @@
 const Builder = require('@mike/translator-classes/Builder');
 const { loadClass } = require('@mike/class');
 
-const builder = require('../../../src/validations/config/builder');
+const builder = require('../../src/validations/builder');
 
 const TestableBuilder = loadClass(function () {}).extend(Builder);
 

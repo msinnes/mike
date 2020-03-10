@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`contextFactory returns currentToken should be read only 1`] = `"InternalError: currentToken is read only"`;
