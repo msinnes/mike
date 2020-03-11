@@ -16,13 +16,13 @@ describe('composeInterface', () => {
   const instanceRef = {};
   const field1Ref = { is: jest.fn().mockReturnValue(true) };
   const field2Ref = { is: jest.fn().mockReturnValue(true) };
-  const interfaceConfigRef = {
+  const typeMapRef = {
     field1: field1Ref,
     field2: field2Ref,
   };
 
   beforeEach(() => {
-    LoadedInterface = composeInterface(interfaceConfigRef);
+    LoadedInterface = composeInterface(typeMapRef);
   });
 
   afterEach(() => {
@@ -68,7 +68,7 @@ describe('composeInterface', () => {
 
       expect(BaseInterfaceEnsureMock).toHaveBeenCalledTimes(1);
       expect(BaseInterfaceEnsureMock.mock.calls[0][0]).toEqual(instanceRef);
-      expect(BaseInterfaceEnsureMock.mock.calls[0][1]).toEqual(interfaceConfigRef);
+      expect(BaseInterfaceEnsureMock.mock.calls[0][1]).toEqual(typeMapRef);
     });
   });
 

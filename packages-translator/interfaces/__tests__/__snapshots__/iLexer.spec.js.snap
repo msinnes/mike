@@ -4,5 +4,5 @@ exports[`iLexer should throw an error if the config is invalid 1`] = `
 "ClassError: Runtime Interface Error
 tokenizers: Expected Array
 skips: Expected Array
-ctx: Expected Context"
+ctx: Expected LexerContext"
 `;

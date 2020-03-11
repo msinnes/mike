@@ -1,11 +1,10 @@
 const { loadInterface } = require('@mike/class');
 const ArrayType = require('@mike/types/Array');
 
-const ContextType = require('@mike/translator-types/Context');
+const LexerContextType = require('@mike/translator-types/LexerContext');
 
 module.exports = loadInterface({
   tokenizers: ArrayType,
   skips: ArrayType,
-  // TODO: this should probably be a LexerContextType
-  ctx: ContextType,
+  ctx: LexerContextType,
 });

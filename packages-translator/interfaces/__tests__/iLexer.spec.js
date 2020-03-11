@@ -1,9 +1,9 @@
 const { isInterface, loadClass } = require('@mike/class');
-const Context = require('@mike/translator-classes/Context');
+const LexerContext = require('@mike/translator-classes/LexerContext');
 
 const iLexer = require('../iLexer');
 
-const TestableContext = loadClass(function() {}).extend(Context);
+const TestableLexerContext = loadClass(function() {}).extend(LexerContext);
 
 describe('iLexer', () => {
   it('should be an interface', () => {
@@ -15,7 +15,7 @@ describe('iLexer', () => {
       iLexer.ensure({
         tokenizers: [],
         skips: [],
-        ctx: new TestableContext(),
+        ctx: new TestableLexerContext(''),
       });
     }).not.toThrow();
   });

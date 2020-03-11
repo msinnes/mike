@@ -1,6 +1,5 @@
 const InheritanceProp = require('../../src/classes/InheritanceProp');
 
-
 describe('InheritanceProp', () => {
   let instance;
   const pojcRef = function() {};

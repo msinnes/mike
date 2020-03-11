@@ -3,7 +3,6 @@
 exports[`iParser should throw an error if the config is invalid 1`] = `
 "ClassError: Runtime Interface Error
 builder: Expected BuilderClass
-createContext: Expected Function
 lexer: Expected LexerClass
 rootSyntaxRule: Expected Function
 syntaxRules: Expected SyntaxRules"

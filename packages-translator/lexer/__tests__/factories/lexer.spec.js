@@ -2,7 +2,7 @@ const Lexer = require('@mike/translator-classes/Lexer');
 
 const lexerFactory = require('../../src/factories/lexer');
 
-const LexerContext = require('../../src/context/LexerContext');
+const LexerContext = require('@mike/translator-classes/LexerContext');
 
 describe('lexerFactory', () => {
   afterEach(() => {

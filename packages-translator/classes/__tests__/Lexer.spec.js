@@ -1,15 +1,12 @@
 const { loadClass } = require('@mike/class');
 
 const { EOF } = require('@mike/translator-constants');
-const Context = require('@mike/translator-classes/Context');
 const iLexer = require('@mike/translator-interfaces/iLexer');
 
+const LexerContext = require('../LexerContext');
+const Contextual = require('../Contextual');
 const Lexer = require('../Lexer');
 const Token = require('../Token');
-
-const TestableContext = loadClass(function() {
-  this.constructor.expose(this, 'currentCharacter', () => 'a');
-}).extend(Context);
 
 describe('Lexer', () => {
   let TestableLexer;
@@ -17,7 +14,7 @@ describe('Lexer', () => {
     TestableLexer = loadClass(function() {
       this.skips = [];
       this.tokenizers = [];
-      this.ctx = new TestableContext();
+      this.ctx = new LexerContext('a');
     }).extend(Lexer);
   });
   it('should be an abstract class', () => {
@@ -48,12 +45,16 @@ describe('Lexer', () => {
     expect(TestableLexer.implements(iLexer)).toBe(true);
   });
 
+  it('should extend Contextual', () => {
+    expect(TestableLexer.extends(Contextual)).toBe(true);
+  });
+
   describe('instance', () => {
     describe('BareLexer', () => {
       function LexerClass() {
         this.skips = [];
         this.tokenizers = [];
-        this.ctx = new TestableContext();
+        this.ctx = new LexerContext('a');
       }
       let BareLexer, instance;
       beforeEach(() => {
@@ -109,12 +110,10 @@ describe('Lexer', () => {
         });
 
         it('it should return an EOF token if there is no this.ctx.currentCharacter', () => {
-          const EmptyContext = loadClass(function() {}).extend(Context);
-
           function LexerClass() {
             this.skips = [];
             this.tokenizers = [];
-            this.ctx = new EmptyContext();
+            this.ctx = new LexerContext('');
           }
           const TestableLexer = loadClass(LexerClass).extend(Lexer);
           const instance = new TestableLexer('test');
@@ -144,7 +143,7 @@ describe('Lexer', () => {
       function WithTokenizers() {
         this.skips = [];
         this.tokenizers = [testTokenizer];
-        this.ctx = new TestableContext();
+        this.ctx = new LexerContext('a');
       }
       let LexerWithTokenizers, instance;
       beforeEach(() => {
@@ -202,7 +201,7 @@ describe('Lexer', () => {
     function WithTokenizers() {
       this.skips = [testSkip];
       this.tokenizers = [testTokenizer];
-      this.ctx = new TestableContext();
+      this.ctx = new LexerContext('a');
     }
     let LexerWithSkips, instance;
     beforeEach(() => {

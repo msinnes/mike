@@ -7,7 +7,6 @@ const SyntaxRulesType = require('@mike/translator-types/SyntaxRules');
 
 module.exports = loadInterface({
   builder: BuilderClassType,
-  createContext: FunctionType,
   lexer: LexerClassType,
   rootSyntaxRule: FunctionType,
   syntaxRules: SyntaxRulesType,

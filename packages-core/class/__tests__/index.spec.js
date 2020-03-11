@@ -2,6 +2,7 @@ const BaseClass = require('../src/class/base');
 
 const Class = require('../src');
 const abstractClassLoader = require('../src/loaders/abstractClass');
+const arrayTypeLoader = require('../src/loaders/arrayType');
 const classLoader = require('../src/loaders/class');
 const interfaceLoader = require('../src/loaders/interface');
 const staticClassLoader = require('../src/loaders/staticClass');
@@ -52,6 +53,8 @@ describe('Class.loader', () => {
     expect(Class).toBeInstanceOf(Object);
     expect(Class.loadAbstractClass).toBeDefined();
     expect(Class.loadAbstractClass).toEqual(abstractClassLoader);
+    expect(Class.loadArrayType).toBeDefined();
+    expect(Class.loadArrayType).toEqual(arrayTypeLoader);
     expect(Class.loadClass).toBeDefined();
     expect(Class.loadClass).toEqual(classLoader);
     expect(Class.loadInterface).toBeDefined();

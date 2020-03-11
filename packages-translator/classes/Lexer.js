@@ -8,6 +8,8 @@ const Validation = require('@mike/validations/Validation');
 const { EOF } = require('@mike/translator-constants');
 const iLexer = require('@mike/translator-interfaces/iLexer');
 
+const Contextual = require('./Contextual');
+const LexerContext = require('./LexerContext');
 const Token = require('./Token');
 
 const textValidation = StringValidation('text must be a string', { throwOnInvalid: true });
@@ -29,6 +31,7 @@ const tokenValidation = RuntimeValidation(
 function Lexer(text) {
   textValidation.validate(text);
   this.text = text;
+  this.ContextClass = LexerContext;
 }
 
 Lexer.prototype.checkAnalyzer = function({ check }) {
@@ -57,4 +60,4 @@ Lexer.prototype.getNextToken = function() {
   return new Token(EOF);
 };
 
-module.exports = loadAbstractClass(Lexer).implement(iLexer);
+module.exports = loadAbstractClass(Lexer).extend(Contextual).implement(iLexer);

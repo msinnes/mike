@@ -3,6 +3,7 @@ const AstNode = require('@mike/translator-classes/AstNode');
 const iParser = require('@mike/translator-interfaces/iParser');
 
 const Builder = require('../Builder');
+const Contextual = require('../Contextual');
 const Lexer = require('../Lexer');
 const Parser = require('../Parser');
 
@@ -29,6 +30,10 @@ describe('Parser', () => {
 
   it('should implement iParser', () => {
     expect(Parser.implements(iParser)).toBe(true);
+  });
+
+  it('should extend Contextual', () => {
+    expect(TestableParser.extends(Contextual)).toBe(true);
   });
 
   describe('instance', () => {
@@ -151,8 +156,10 @@ describe('Parser', () => {
         expect(mapRulesMock).toHaveBeenCalledTimes(1);
         expect(mapRulesMock.mock.calls[0][0]).toEqual(instance.syntaxRules);
         expect(createContextMock).toHaveBeenCalledTimes(1);
-        expect(createContextMock.mock.calls[0][0]).toEqual('some text');
-        expect(createContextMock.mock.calls[0][1]).toEqual(mappedRulesRef);
+        expect(createContextMock.mock.calls[0][0]).toEqual(Lexer);
+        expect(createContextMock.mock.calls[0][1]).toEqual('some text');
+        expect(createContextMock.mock.calls[0][2]).toEqual(Builder);
+        expect(createContextMock.mock.calls[0][3]).toEqual(mappedRulesRef);
         expect(ObjectAssignMock).toHaveBeenCalledTimes(1);
         expect(ObjectAssignMock.mock.calls[0][1]).toEqual(contextRef);
         expect(rootSyntaxRuleMock).toHaveBeenCalledTimes(1);

@@ -1,7 +1,7 @@
-const interfaceConfigEnforcement = require('../enforcements/interfaceConfig');
+const typeMapEnforcement = require('../enforcements/typeMap');
 const composeInterface = require('../interface/compose');
 
 module.exports = config => {
-  interfaceConfigEnforcement(config);
+  typeMapEnforcement(config);
   return composeInterface(config);
 };

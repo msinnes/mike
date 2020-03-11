@@ -2,7 +2,7 @@ const { loadClass } = require('@mike/class');
 
 const Parser = require('@mike/translator-classes/Parser');
 
-const ParserContext = require('../context/ParserContext');
+const ParserContext = require('@mike/translator-classes/ParserContext');
 
 module.exports = (
   builder,

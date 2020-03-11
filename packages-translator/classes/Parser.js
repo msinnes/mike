@@ -6,6 +6,9 @@ const Validation = require('@mike/validations/Validation');
 
 const iParser = require('@mike/translator-interfaces/iParser');
 
+const Contextual = require('./Contextual');
+const ParserContext = require('./ParserContext');
+
 const textRuntimeValidation = RuntimeValidation(
   StringValidation(
     'parsers can only parse string input'
@@ -19,7 +22,9 @@ const nodeRuntimeValidation = RuntimeValidation(
   )
 );
 
-function Parser() {}
+function Parser() {
+  this.ContextClass = ParserContext;
+}
 
 Parser.prototype.mapRules = function(rules, context) {
   return Object.keys(rules).reduce((acc, key) => ({
@@ -35,7 +40,12 @@ Parser.prototype.parse = function(text) {
   const wrappedSyntaxRules = this.mapRules(this.syntaxRules, ctx);
   const wrappedRootSyntaxRule = this.wrapRule(this.rootSyntaxRule, ctx);
 
-  Object.assign({}, this.createContext(text, wrappedSyntaxRules));
+  Object.assign({}, this.createContext(
+    this.lexer,
+    text,
+    this.builder,
+    wrappedSyntaxRules
+  ));
 
   return wrappedRootSyntaxRule(ctx);
 };
@@ -48,4 +58,4 @@ Parser.prototype.wrapRule = function(syntaxRule, context) {
   };
 };
 
-module.exports = loadAbstractClass(Parser).implement(iParser);
+module.exports = loadAbstractClass(Parser).extend(Contextual).implement(iParser);
