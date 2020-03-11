@@ -1,7 +1,13 @@
 const { loadClass } = require('@mike/class');
 const AstNode = require('@mike/translator-classes/AstNode');
 
-const visitorFactory = require('../../src/factories/visitor');
+const Visitor = require('@mike/translator-classes/Visitor');
+const VisitorContext = require('@mike/translator-classes/VisitorContext');
+
+const TestableVisitorContext = loadClass(function() {}).extend(VisitorContext);
+const TestableVisitor = loadClass(function() {
+  this.ContextClass = TestableVisitorContext;
+}).extend(Visitor);
 
 function Symbol(name, type) {
   this.name = name;
@@ -152,7 +158,7 @@ function getSymbolTableBuilder() {
     }
   }
 
-  return visitorFactory({
+  return new TestableVisitor({
     VariableDeclaration: visitVariableDeclaration,
     Assign: visitAssign,
     Var: visitVar,
@@ -216,40 +222,36 @@ function createScope() {
   };
 }
 
-describe('visitorFactory', () => {
+describe('Visitor', () => {
   let scope;
   let runVisitor;
-  let ctx;
   beforeEach(() => {
     scope = createScope();
-    ctx = {
-      scope,
-    };
-    runVisitor = visitorFactory(getRunVisitor());
+    runVisitor = new TestableVisitor(getRunVisitor());
   });
 
   it('should be a function', () => {
-    expect(visitorFactory).toBeDefined();
-    expect(visitorFactory).toBeInstanceOf(Function);
+    expect(Visitor).toBeDefined();
+    expect(Visitor).toBeInstanceOf(Function);
   });
 
   it('should visit a node', () => {
     const numberNode = new NumberClass('Number', { value: 1 });
-    expect(runVisitor(numberNode)).toEqual(1);
+    expect(runVisitor.visit(numberNode)).toEqual(1);
   });
 
   it('should visit nodes recursively and pass pre-order values', () => {
     const numberOne = new NumberClass('Number', { value: 1 });
     const numberTwo = new NumberClass('Number', { value: 2 });
     const plus = new BinOpClass('BinOp', BIN_OP_TYPES.PLUS, numberOne, numberTwo);
-    expect(runVisitor(plus)).toEqual(3);
+    expect(runVisitor.visit(plus)).toEqual(3);
   });
 
   it('should visit nodes recursively and pass pre-order values', () => {
     const numberOne = new NumberClass('Number', { value: 1 });
     const numberTwo = new NumberClass('Number', { value: 2 });
     const plus = new NumbersClass('Numbers', [numberOne, numberTwo]);
-    expect(runVisitor(plus)).toEqual(3);
+    expect(runVisitor.visit(plus)).toEqual(3);
   });
 
   it('should pass a context to visitors', () => {
@@ -267,7 +269,10 @@ describe('visitorFactory', () => {
     const compound = new CompoundClass('Compound', [
       assignOne, assignTwo, assignThree,
     ]);
-    runVisitor(compound, ctx);
+    const contextMock = jest.fn();
+    runVisitor.createContext = contextMock;
+    contextMock.mockReturnValue({ scope });
+    runVisitor.visit(compound);
     expect(scope.get('c')).toEqual(6);
   });
 

@@ -17,6 +17,7 @@ describe('Lexer', () => {
       this.ctx = new LexerContext('a');
     }).extend(Lexer);
   });
+
   it('should be an abstract class', () => {
     expect(() => {
       Lexer('string');

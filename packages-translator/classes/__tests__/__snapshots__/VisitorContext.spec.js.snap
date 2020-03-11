@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VisitorContext should be an abstract class 1`] = `"ClassError: Cannot call a class as a function"`;
+
+exports[`VisitorContext should be an abstract class 2`] = `"ClassError: Abstract classes cannot be instantiated"`;
