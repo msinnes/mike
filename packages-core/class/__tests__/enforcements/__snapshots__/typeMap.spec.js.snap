@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`typeMapEnforcement should throw an error if an input is not a map of types 1`] = `"InternalError: Expected a map of types"`;
+
+exports[`typeMapEnforcement should throw an error if an input is not a map of types 2`] = `"InternalError: Expected a map of types"`;
+
+exports[`typeMapEnforcement should throw an error if an input is not a map of types 3`] = `"InternalError: Expected a map of types"`;
+
+exports[`typeMapEnforcement should throw an error if an input is not a map of types 4`] = `"InternalError: Expected a map of types"`;

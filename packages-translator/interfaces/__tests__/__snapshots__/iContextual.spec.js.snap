@@ -1,0 +1,6 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`iContextual should throw an error if the config is invalid 1`] = `
+"ClassError: Runtime Interface Error
+ContextClass: Expected ContextClass"
+`;

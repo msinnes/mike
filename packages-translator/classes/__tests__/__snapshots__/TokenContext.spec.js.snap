@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TokenContext each should throw an error if an attempt is made to eat the wrong token 1`] = `"ParseError: Unexpected Token"`;
