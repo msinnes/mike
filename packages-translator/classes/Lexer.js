@@ -12,6 +12,7 @@ const Contextual = require('./Contextual');
 const LexerContext = require('./LexerContext');
 const Token = require('./Token');
 
+// TODO: should be a runtime validation
 const textValidation = StringValidation('text must be a string', { throwOnInvalid: true });
 
 const booleanRuntimeValidation = RuntimeValidation(

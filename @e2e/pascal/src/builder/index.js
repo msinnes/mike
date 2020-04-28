@@ -60,6 +60,14 @@ module.exports = builderConstructor({
     },
     aliases: ['Expression', 'Literal'],
   },
+  ProcedureDeclaration: {
+    properties: ['name', 'block'],
+    validations: {
+      block: ['Block'],
+      name: val => typeof val === 'string',
+    },
+    aliases: ['Declaration'],
+  },
   Program: {
     properties: ['name', 'block'],
     validations: {

@@ -16,6 +16,7 @@ module.exports = {
   MINUS: 'MINUS',
   MULTIPLY: 'MULTIPLY',
   PLUS: 'PLUS',
+  PROCEDURE: 'PROCEDURE',
   PROGRAM: 'PROGRAM',
   R_PAREN: 'R_PAREN',
   REAL: 'REAL',

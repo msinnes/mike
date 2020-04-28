@@ -1,6 +1,17 @@
 const lexer = require('@mike/lexer');
 
-const { BEGIN, DIV, END, ID, INTEGER, INTEGER_DIV, PROGRAM, REAL, VAR } = require('../constants');
+const {
+  BEGIN,
+  DIV,
+  END,
+  ID,
+  INTEGER,
+  INTEGER_DIV,
+  PROGRAM,
+  PROCEDURE,
+  REAL,
+  VAR
+} = require('../constants');
 
 const skipComments = require('./skips/comments');
 const skipSpaces = require('./skips/spaces');
@@ -18,7 +29,7 @@ const semi = require('./tokenizers/semi');
 
 module.exports = lexer({
   caseSensitive: false,
-  reservedKeywords: [BEGIN, DIV, END, ID, INTEGER, INTEGER_DIV, PROGRAM, REAL, VAR],
+  reservedKeywords: [BEGIN, DIV, END, ID, INTEGER, INTEGER_DIV, PROGRAM, PROCEDURE, REAL, VAR],
   skips: [skipComments, skipSpaces, skipNewline],
   tokenizers: [
     assign,

@@ -1,8 +1,7 @@
 {
-  "name": "@e2e/class",
+  "name": "@benchmark/character-analysis",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
   "keywords": [],
   "author": "",
   "license": "ISC"

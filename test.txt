@@ -1,0 +1,95 @@
+Space :: 32
+Exclamation mark :: 33
+Double quotes :: 34
+Number :: 35
+Dollar :: 36
+Per cent sign :: 37
+Ampersand :: 38
+Single quote :: 39
+Open parenthesis :: 40
+Close parenthesis :: 41
+Asterisk :: 42
+Plus :: 43
+Comma :: 44
+Hyphen :: 45
+Period :: 46
+Slash :: 47
+Zero :: 48
+One :: 49
+Two :: 50
+Three :: 51
+Four :: 52
+Five :: 53
+Six :: 54
+Seven :: 55
+Eight :: 56
+Nine :: 57
+Colon :: 58
+Semicolon :: 59
+Less than :: 60
+Equals :: 61
+Greater than :: 62
+Question mark :: 63
+At symbol :: 64
+Uppercase A :: 65
+Uppercase B :: 66
+Uppercase C :: 67
+Uppercase D :: 68
+Uppercase E :: 69
+Uppercase F :: 70
+Uppercase G :: 71
+Uppercase H :: 72
+Uppercase I :: 73
+Uppercase J :: 74
+Uppercase K :: 75
+Uppercase L :: 76
+Uppercase M :: 77
+Uppercase N :: 78
+Uppercase O :: 79
+Uppercase P :: 80
+Uppercase Q :: 81
+Uppercase R :: 82
+Uppercase S :: 83
+Uppercase T :: 84
+Uppercase U :: 85
+Uppercase V :: 86
+Uppercase W :: 87
+Uppercase X :: 88
+Uppercase Y :: 89
+Uppercase Z :: 90
+Opening bracket :: 91
+Backslash :: 92
+Closing bracket :: 93
+Caret :: 94
+Underscore :: 95
+Grave accent :: 96
+Lowercase a :: 97
+Lowercase b :: 98
+Lowercase c :: 99
+Lowercase d :: 100
+Lowercase e :: 101
+Lowercase f :: 102
+Lowercase g :: 103
+Lowercase h :: 104
+Lowercase i :: 105
+Lowercase j :: 106
+Lowercase k :: 107
+Lowercase l :: 108
+Lowercase m :: 109
+Lowercase n :: 110
+Lowercase o :: 111
+Lowercase p :: 112
+Lowercase q :: 113
+Lowercase r :: 114
+Lowercase s :: 115
+Lowercase t :: 116
+Lowercase u :: 117
+Lowercase v :: 118
+Lowercase w :: 119
+Lowercase x :: 120
+Lowercase y :: 121
+Lowercase z :: 122
+Opening brace :: 123
+Vertical bar :: 124
+Closing brace :: 125
+tilde :: 126

@@ -7,6 +7,7 @@ const Contextual = require('./Contextual');
 const createVisitor = visitors => {
   return function visit(node, ctx = {}) {
     let resolvedValues = {};
+    const visitor = visitors[node.type];
     Object.keys(node).forEach(key => {
       const value = node[key];
       if (isNode(value)) {
@@ -15,11 +16,11 @@ const createVisitor = visitors => {
         } else {
           resolvedValues[key] = visit(value, ctx);
         }
+        // TODO: this can be skipped
       } else {
         resolvedValues[key] = value;
       }
     });
-    const visitor = visitors[node.type];
     if(visitor) {
       return visitor(node, { ...ctx, resolvedValues });
     }
